@@ -1,0 +1,118 @@
+---
+slug: sunblog-admin
+title: SunBlog Admin Panel - Dasbor CMS terstruktur untuk SunBlog
+publish: true
+featured: true
+description: Perancangan antarmuka pengguna (UI) dan pengalaman pengguna (UX) untuk panel admin SunBlog, dengan fokus pada tata letak yang intuitif, navigasi yang mudah, dan desain yang responsif.
+image: thumbnail.png
+category: UI/UX Design
+projectType: Proyek Pribadi
+startDate: 12 Juni 2026
+technologies:
+  - Figma
+  - React
+  - Tailwind CSS
+role: UI/UX Designer
+duration: 2 Bulan
+status: Selesai # 'Selesai', 'Dalam Pengembangan' , 'Konsep'
+demoLink: null
+---
+
+import dashboardImage from './images/Dashboard Page.png'
+import UIKitImage from './images/UI Kit.png'
+import ArticlesTableImage from './images/Articles Page.png'
+
+## Tentang Proyek
+
+**SunBlog Admin Panel** adalah proyek eksplorasi desain antarmuka panel kendali (CMS) internal yang berfokus pada efisiensi pengelolaan platform SunBlog. Dalam proyek ini, ruang lingkup desain dibatasi secara spesifik pada 4 halaman inti yang menjadi fondasi utama operasional sebuah sistem manajemen, yaitu:
+
+1. **Dashboard Utama**: Panel ringkasan analitik dan aktivitas blog.
+2. **Tabel Artikel**: Manajemen dan filter status rilis konten.
+3. **Tabel User**: Manajemen basis data pengguna dan pembagian peran (roles).
+4. **Detail User**: Halaman kelola informasi spesifik dan hak akses akun.
+
+## Tujuan Proyek
+
+- Merancang antarmuka pengguna (UI) yang intuitif dan mudah digunakan untuk panel admin SunBlog.
+- Meningkatkan pengalaman pengguna (UX) dengan navigasi yang jelas dan alur kerja yang efisien.
+- Menerapkan prinsip desain responsif agar panel admin dapat diakses dengan nyaman di berbagai perangkat.
+
+## Studi Kasus (The Case Study)
+
+### Latar Belakang
+
+SunBlog adalah platform publikasi artikel ilmiah dan teknologi yang sedang berkembang pesat. Sebagai satu-satunya UI/UX Designer dalam proyek ini, peran saya adalah merancang sistem manajemen konten (CMS) internal berskala MVP (Minimum Viable Product) yang dapat menjembatani kebutuhan Admin, Author (penulis), dan pembaca agar operasional harian berjalan lebih efisien.
+
+### Identifikasi Masalah
+
+Berdasarkan analisis internal terhadap pengelolaan blog berbasis repositori kode, ditemukan 4 masalah utama yang dihadapi oleh pengelola web:
+
+- **Hambatan Teknis Penulis** (*Author Friction*): Penulis konten yang tidak memiliki latar belakang IT merasa kesulitan dan membutuhkan waktu lama untuk merilis artikel karena harus menulis langsung menggunakan format teks MDX.
+- **Minimnya Transparansi Performa Konten** (*Data Blindness*): Pengelola blog kesulitan mengetahui artikel mana yang populer dan mana yang tidak, karena tidak adanya visualisasi data analitik yang terintegrasi secara real-time.
+- **Manajemen Tim yang Longgar** (*Author Management*): Tidak adanya sistem pemantauan keaktifan penulis membuat pemilik blog kesulitan mengevaluasi produktivitas tim (misalnya mendeteksi jika ada author yang bermalas-malasan).
+- **Ancaman Keamanan** (*Security & Moderation*): Tanpa adanya panel manajemen pengguna yang jelas, pengelola kesulitan melacak, memoderasi, atau memblokir akun pengguna nakal yang berpotensi merusak ekosistem komentar atau konten blog.
+
+## Metodologi Desain: Mengapa Langsung High-Fidelity?
+
+Dalam proyek SunBlog CMS ini, saya melewatkan tahap sketsa manual (Low-Fidelity Wireframe) dan langsung melakukan perancangan berbasis komponen beresolusi tinggi (High-Fidelity UI). Keputusan ini diambil secara sengaja berdasarkan beberapa pertimbangan teknis:
+
+- **Efisiensi Berbasis Komponen (*Atomic Design*)**: Karena pustaka komponen dasar (buttons, inputs, badges) sudah didefinisikan dengan matang di awal, merancang langsung di tahap Hi-Fi menjadi jauh lebih cepat daripada menggambar sketsa dari nol.
+- **Latar Belakang RPL/Frontend**: Pemahaman kuat mengenai struktur layout web (seperti sistem grid, flexbox, dan batasan HTML/CSS) membuat alur ruang dan tata letak halaman sudah terpetakan secara logis sejak awal di kepala saya, sehingga visualisasi langsung ke produk akhir menjadi lebih akurat.
+- **Kecepatan Validasi Internal**: Proyek ini bertujuan untuk segera meluncurkan MVP (Minimum Viable Product). Menggunakan Hi-Fi secara langsung mempermudah simulasi alur data dan interaksi riil yang akan dihadapi oleh pengguna akhir (Admin/Author).
+
+### Solusi yang Diterapkan
+
+Untuk menyelesaikan masalah tersebut, saya merancang SunBlog Admin Panel, sebuah dasbor CMS yang menyederhanakan aktivitas teknis menjadi antarmuka visual yang intuitif. Solusi ini diwujudkan melalui 4 halaman inti:
+
+- **Dashboard Utama**: Menyediakan kartu metrik analitik dan grafik tren artikel untuk menyelesaikan masalah Data Blindness.
+- **Tabel Artikel**: Menyediakan manajemen status (Draft, Published) yang nantinya akan terintegrasi dengan editor visual, memangkas kerumitan penulisan MDX.
+- **Tabel & Detail User**: Menyediakan sistem manajemen berbasis peran (Role-Based Access Control) untuk memantau performa author sekaligus mempermudah moderasi atau pemblokiran akun nakal.
+
+## Proses Desain
+
+### Pengembangan Atomik & Sistem Desain
+
+Untuk memastikan efisiensi kerja dan konsistensi visual di seluruh halaman SunBlog CMS, saya menerapkan pendekatan Atomic Design dengan menyusun pustaka komponen yang dapat digunakan kembali (reusable components).
+
+Berikut adalah tiga poin utama dalam pengembangan komponen ini:
+
+1. **Konsistensi Varian & Status**: Saya merancang Status Badge (seperti Published, Drafted, Archived) dan tombol dengan varian warna serta tingkat kontras yang konsisten. Hal ini memastikan pengguna langsung memahami status data secara instan (Scannability) tanpa perlu membaca teks secara detail.
+
+2. **Skalabilitas Data Table**: Komponen baris tabel, kolom input, dan tombol aksi (Edit/Delete) dibuat secara modular. Jika di masa depan CMS ini membutuhkan fitur baru, tim desainer dapat langsung menduplikasi komponen yang sudah ada tanpa harus mendesain dari awal.
+
+3. **Efisiensi Handoff ke Frontend (RPL Approach)**: Sebagai desainer dengan latar belakang RPL, seluruh komponen ini dibuat dengan struktur properti (seperti Primary, Secondary, Hover State) yang meniru logika props dan kelas pada CSS/Tailwind. Hal ini meminimalkan kesalahpahaman saat desain diserahkan kepada tim Frontend Engineer untuk di-coding.
+
+<ProjectImage
+  src={UIKitImage}
+  alt="Tampilan pustaka komponen UI Kit"
+  caption="Pustaka komponen UI Kit yang digunakan untuk membangun halaman CMS"
+/>
+
+### Bedah Antarmuka Halaman Dashboard Utama
+
+Halaman Dashboard dirancang sebagai panel kendali pusat untuk memberikan ringkasan eksekutif mengenai performa blog secara instan. Saya membagi halaman ini menjadi tiga zona informasi utama berdasarkan prioritas kebutuhan Admin:
+
+- **Top-Level Metrics (Metrik Utama Atas)**: Saya menempatkan 4 kartu metrik utama (Total Articles, Total Users, Total Comments, Total Views) di bagian paling atas dengan kontras warna yang kuat. Angka dibuat berukuran besar (bold) agar Admin bisa langsung melakukan evaluasi cepat terhadap performa situs begitu masuk ke dalam sistem (High Scannability).
+
+- **Analitik Konten & Performa Artikel**: Bagian tengah diisi dengan grafik tren perkembangan artikel serta daftar Most Viewed Articles dan Most Liked Articles. Fitur ini dirancang khusus untuk mempermudah Admin memantau artikel mana saja yang sedang populer dan disukai oleh pembaca, sehingga tim konten bisa menentukan strategi topik berikutnya berdasarkan data riil.
+
+- **Manajemen Konten Populer Visual**: Di bagian bawah, terdapat kartu visual Most Popular Articles yang dilengkapi dengan informasi penulis, jumlah pembaca, dan tombol aksi. Di bawahnya lagi, bagan distribusi kategori (pie chart) dan tipe konten (bar chart) ditambahkan untuk membantu Admin melihat keseimbangan variasi topik yang dipublikasikan secara makro.
+
+<ProjectImage
+  src={dashboardImage}
+  alt="Tampilan dashboard utama SunBlog"
+  caption="Dashboard utama untuk mengelola konten"
+/>
+
+### Bedah Halaman Tabel Artikel (Content Management)
+
+Halaman ini berfokus pada penyelesaian masalah kerumitan pengelolaan file fisik MDX oleh penulis. Antarmuka dirancang dengan pendekatan manajemen data yang bersih:
+
+- **Sistem Filter & Pencarian Cepat**: Menyediakan bilah pencarian dan dropdown filter berdasarkan status artikel (Published, Draft, Archived). Hal ini memangkas waktu Admin dalam melacak artikel spesifik di antara ratusan konten yang ada.
+- **Aksi Cepat (Quick Actions)**: Setiap baris tabel dilengkapi tombol aksi yang jelas (Edit, View, Delete) untuk mempercepat interaksi pengelolaan konten tanpa perlu berpindah-pindah halaman secara berbelit-belit.
+
+<ProjectImage
+  src={ArticlesTableImage}
+  alt="Tampilan tabel artikel SunBlog"
+  caption="Tabel artikel untuk mempermudah pengelolaan konten"
+/>

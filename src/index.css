@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #f97316;
+  --color-secondary: #d97706;
+  --color-accent: #ea580c;
+
+  --color-background: #0D0F14;
+  --color-surface: #121924;
+
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+
+  /* Gradient kategori proyek */
+  --color-category-ui-start: #f97316;
+  --color-category-ui-end: #ea580c;
+
+  --color-category-web-start: #3b82f6;
+  --color-category-web-end: #2563eb;
+
+  --color-category-graphic-start: #22c55e;
+  --color-category-graphic-end: #15803d;
+}
+
+/* Efek cahaya pada border kartu */
+
+.card-mouse-glow {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid transparent;
+  background: var(--color-surface);
+  border-radius: 1rem;
+}
+
+.card-mouse-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 350ms ease;
+
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(249, 115, 22, 1),
+    rgba(234, 88, 12, 0.65) 25%,
+    rgba(217, 119, 6, 0.25) 55%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.card-mouse-glow:hover::before {
+  opacity: 1;
+}
+
+.card-mouse-glow::after {
+  content: none;
+}
+
+/* Highlight sudut foto profil */
+
+.profile-corners {
+  --corner-size: 5rem;
+  --corner-width: 2px;
+  --corner-color: #fb923c;
+  --corner-glow: rgba(249, 115, 22, 0.8);
+
+  z-index: 10;
+}
+
+.profile-corner {
+  position: absolute;
+  width: var(--corner-size);
+  height: var(--corner-size);
+  border-style: solid;
+  border-width: 0;
+  border-color: var(--corner-color);
+  opacity: 0.25;
+  filter: drop-shadow(0 0 2px transparent);
+  animation: profile-corner-highlight 8s linear infinite;
+}
+
+.profile-corner-tl {
+  top: 0;
+  left: 0;
+  border-top-width: var(--corner-width);
+  border-left-width: var(--corner-width);
+  border-top-left-radius: 1.5rem;
+  animation-delay: 0s;
+}
+
+.profile-corner-tr {
+  top: 0;
+  right: 0;
+  border-top-width: var(--corner-width);
+  border-right-width: var(--corner-width);
+  border-top-right-radius: 1.5rem;
+  animation-delay: -6s;
+}
+
+.profile-corner-br {
+  right: 0;
+  bottom: 0;
+  border-right-width: var(--corner-width);
+  border-bottom-width: var(--corner-width);
+  border-bottom-right-radius: 1.5rem;
+  animation-delay: -4s;
+}
+
+.profile-corner-bl {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: var(--corner-width);
+  border-left-width: var(--corner-width);
+  border-bottom-left-radius: 1.5rem;
+  animation-delay: -2s;
+}
+
+@keyframes profile-corner-highlight {
+  0%,
+  15%,
+  100% {
+    opacity: 0.25;
+    filter: drop-shadow(0 0 2px transparent);
+  }
+
+  5%,
+  10% {
+    opacity: 1;
+    filter:
+      drop-shadow(0 0 3px var(--corner-glow))
+      drop-shadow(0 0 8px var(--corner-glow));
+  }
+}
+
+/* Animasi ticker */
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(var(--ticker-distance, -50%));
+  }
+}
+
+.ticker-track {
+  animation: ticker-scroll var(--ticker-duration, 25s) linear infinite;
+  will-change: transform;
+}
+
+/* Aksesibilitas: kurangi gerakan jika diminta pengguna */
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track,
+  .profile-corner {
+    animation: none;
+  }
+
+  .profile-corner {
+    opacity: 0.8;
+    filter: none;
+  }
+}
+
+.background-bubble {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+  filter: blur(80px);
+  animation: bubble-float 18s ease-in-out infinite alternate;
+}
+
+.background-bubble-orange {
+  top: 8%;
+  left: -10rem;
+  width: 26rem;
+  height: 26rem;
+  background: rgb(249 115 22 / 12%);
+}
+
+.background-bubble-red {
+  right: -12rem;
+  top: 35%;
+  width: 30rem;
+  height: 22rem;
+  background: rgb(234 88 12 / 10%);
+  animation-delay: -6s;
+  animation-duration: 22s;
+}
+
+.background-bubble-amber {
+  bottom: -12rem;
+  left: 30%;
+  width: 28rem;
+  height: 24rem;
+  background: rgb(217 119 6 / 9%);
+  animation-delay: -12s;
+  animation-duration: 24s;
+}
+
+@keyframes bubble-float {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(45px, -35px, 0) scale(1.08);
+  }
+
+  100% {
+    transform: translate3d(-25px, 30px, 0) scale(0.95);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .background-bubble {
+    animation: none;
+  }
+}
