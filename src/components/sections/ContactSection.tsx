@@ -6,8 +6,8 @@ import {
   Send,
   Sparkles,
 } from 'lucide-react'
-import SectionBadge from '../ui/SectionBadge'
-import SectionDivider from '../ui/SectionDivider'
+import SectionBadge from '@/components/ui/SectionBadge'
+import SectionDivider from '@/components/ui/SectionDivider'
 
 const contactEmail = 'randysaputra1203@gmail.com'
 
@@ -162,48 +162,74 @@ function ContactSection() {
         </div>
 
         {/* Panel ilustrasi komunikasi */}
-        <div className="relative flex min-h-105 items-center justify-center overflow-hidden rounded-2xl border border-orange-500/20 bg-surface p-6 md:min-h-130 md:p-8">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(249,115,22,0.12),transparent_65%)]" />
+        <div className="relative mx-auto w-full max-w-lg">
+          {/* Border luar seperti Hero */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -inset-3 rounded-3xl border border-orange-500/20"
+          />
 
-          <div className="pointer-events-none absolute inset-0 opacity-20">
-            <div className="absolute left-1/2 top-0 h-full w-px bg-linear-to-b from-transparent via-orange-400 to-transparent" />
-            <div className="absolute left-0 top-1/2 h-px w-full bg-linear-to-r from-transparent via-orange-400 to-transparent" />
+          {/* Corner accents seperti Hero */}
+          <div
+            aria-hidden="true"
+            className="profile-corners pointer-events-none absolute -inset-3"
+          >
+            <span className="profile-corner profile-corner-tl" />
+            <span className="profile-corner profile-corner-tr" />
+            <span className="profile-corner profile-corner-br" />
+            <span className="profile-corner profile-corner-bl" />
           </div>
 
-          <div className="relative flex w-full max-w-sm flex-col items-center text-center">
-            <div className="relative mb-8 flex size-36 items-center justify-center rounded-[2rem] border border-orange-400/30 bg-orange-500/5 shadow-[0_0_60px_rgba(249,115,22,0.08)]">
-              <div className="absolute inset-3 rounded-3xl border border-orange-400/10" />
+          {/* Glow background */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 rounded-2xl bg-linear-to-br from-amber-400/20 via-orange-500/10 to-red-600/20 blur-2xl"
+          />
 
-              <div className="flex size-20 items-center justify-center rounded-2xl bg-linear-to-br from-primary to-accent text-white shadow-xl shadow-orange-950/40">
-                <Mail size={38} strokeWidth={1.5} />
-              </div>
+          {/* Panel utama */}
+          <div className="relative flex min-h-105 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-surface p-6 md:min-h-130 md:p-8">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(249,115,22,0.12),transparent_65%)]" />
 
-              <span className="absolute -right-3 top-4 flex size-9 items-center justify-center rounded-xl border border-orange-400/30 bg-surface text-orange-400">
-                <Sparkles size={17} />
-              </span>
-
-              <span className="absolute -bottom-3 -left-3 flex size-9 items-center justify-center rounded-xl border border-orange-400/30 bg-surface text-orange-400">
-                <Send size={16} />
-              </span>
+            <div className="pointer-events-none absolute inset-0 opacity-20">
+              <div className="absolute left-1/2 top-0 h-full w-px bg-linear-to-b from-transparent via-orange-400 to-transparent" />
+              <div className="absolute left-0 top-1/2 h-px w-full bg-linear-to-r from-transparent via-orange-400 to-transparent" />
             </div>
 
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-orange-400">
-              Open for Conversation
-            </p>
+            <div className="relative flex w-full max-w-sm flex-col items-center text-center">
+              <div className="relative mb-8 flex size-36 items-center justify-center rounded-[2rem] border border-orange-400/30 bg-orange-500/5 shadow-[0_0_60px_rgba(249,115,22,0.08)]">
+                <div className="absolute inset-3 rounded-3xl border border-orange-400/10" />
 
-            <h3 className="text-2xl font-bold text-text-primary md:text-3xl">
-              Setiap Ide Punya Awal.
-            </h3>
+                <div className="flex size-20 items-center justify-center rounded-2xl bg-linear-to-br from-primary to-accent text-white shadow-xl shadow-orange-950/40">
+                  <Mail size={38} strokeWidth={1.5} />
+                </div>
 
-            <p className="mt-4 max-w-xs text-sm leading-6 text-text-secondary">
-              Terkadang, karya hebat dimulai dari sebuah pesan sederhana.
-              Mari bicarakan ide berikutnya.
-            </p>
+                <span className="absolute -right-3 top-4 flex size-9 items-center justify-center rounded-xl border border-orange-400/30 bg-surface text-orange-400">
+                  <Sparkles size={17} />
+                </span>
 
-            <div className="mt-7 flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-text-secondary">
-              <span className="size-2 rounded-full bg-orange-500" />
-              Terbuka untuk peluang dan kolaborasi
-              <ArrowUpRight size={14} className="text-orange-400" />
+                <span className="absolute -bottom-3 -left-3 flex size-9 items-center justify-center rounded-xl border border-orange-400/30 bg-surface text-orange-400">
+                  <Send size={16} />
+                </span>
+              </div>
+
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-orange-400">
+                Open for Conversation
+              </p>
+
+              <h3 className="text-2xl font-bold text-text-primary md:text-3xl">
+                Setiap Ide Punya Awal.
+              </h3>
+
+              <p className="mt-4 max-w-xs text-sm leading-6 text-text-secondary">
+                Terkadang, karya hebat dimulai dari sebuah pesan sederhana.
+                Mari bicarakan ide berikutnya.
+              </p>
+
+              <div className="mt-7 flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-text-secondary">
+                <span className="size-2 rounded-full bg-orange-500" />
+                Terbuka untuk peluang dan kolaborasi
+                <ArrowUpRight size={14} className="text-orange-400" />
+              </div>
             </div>
           </div>
         </div>

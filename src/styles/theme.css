@@ -1,0 +1,21 @@
+@theme {
+  --color-primary: #f97316;
+  --color-secondary: #d97706;
+  --color-accent: #ea580c;
+
+  --color-background: #0D0F14;
+  --color-surface: #121924;
+
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+
+  /* Gradient kategori proyek */
+  --color-category-ui-start: #f97316;
+  --color-category-ui-end: #ea580c;
+
+  --color-category-web-start: #3b82f6;
+  --color-category-web-end: #2563eb;
+
+  --color-category-graphic-start: #22c55e;
+  --color-category-graphic-end: #15803d;
+}

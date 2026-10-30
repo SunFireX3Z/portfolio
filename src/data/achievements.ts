@@ -25,7 +25,7 @@ export const achievements: Achievement[] = [
     date: 'Mei 2026',
     images: [
       {
-        src: '/images/certificates/belajar-dasar-pemrograman-web.png',
+        src: '/images/achievements/SiswaBerprestasiSertifikat.jpeg',
         alt: 'Sertifikat Siswa Berprestasi Jurusan PPLG Angkatan 2025-2026',
       },
     ],
@@ -65,7 +65,7 @@ export const achievements: Achievement[] = [
     date: 'Oktober 2024',
     images: [
       {
-        src: '/images/achievements/lomba-poster-nasional.png',
+        src: '/images/achievements/UsahidSertifikat.png',
         alt: 'Penghargaan Juara 1 Lomba Poster Nasional (ROFESTION Vol. 2)',
       },
     ],
@@ -101,6 +101,21 @@ export const achievements: Achievement[] = [
       {
         src: '/images/certificates/PKLSertifikatBelakang.jpeg',
         alt: 'Sertifikat Praktik Kerja Lapangan (PKL) bagian belakang',
+      },
+    ],
+  },
+  {
+    title: 'Webinar Series: Festival Hari Guru "Let\'s Celebrate Our Teachers"',
+    organization: 'Eduplay X S1 PG PAUD Universitas Negeri Jakarta',
+    organizationLogo: '/images/logo/UNJ.png', // Silakan sesuaikan jalur logo UNJ jika ada
+    organizationLogoAlt: 'Logo Universitas Negeri Jakarta',
+    type: 'Sertifikat',
+    description: 'Berpartisipasi aktif sebagai peserta dalam rangkaian webinar nasional untuk memperingati Hari Guru. Fokus pada pengembangan wawasan mengenai kolaborasi edukatif, platform digital pembelajaran, dan manajemen kegiatan berbasis komunitas.',
+    date: 'November 2024',
+    images: [
+      {
+        src: '/images/certificates/UNJSertifikat.jpeg',
+        alt: 'Sertifikat Webinar Festival Hari Guru UNJ',
       },
     ],
   },

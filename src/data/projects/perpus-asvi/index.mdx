@@ -1,0 +1,202 @@
+---
+slug: perpus-asvi
+title: PERPUS ASVI — Manajemen Perpustakaan
+publish: true
+featured: true
+description: Sistem informasi manajemen perpustakaan berbasis web yang mengintegrasikan pengelolaan koleksi buku fisik, peminjaman, booking, administrasi denda, serta portal berita sekolah.
+image: thumbnail.png
+category: Web Developer
+projectType: Proyek Permintaan
+startDate: 21 April 2026
+technologies:
+  - PHP
+  - Tailwind CSS
+  - MySQL
+role: Full-stack Developer
+duration: 2 Bulan
+status: Konsep
+demoLink: null
+---
+
+import HomepageImage from './images/EBookHome.png'
+import KatalogImage from './images/EBookCatalog.png'
+import BeritaImage from './images/EBookNews.png'
+import TentangKamiImage from './images/EBookAboutUs.png'
+import BookingImage from './images/EBookBooking.png'
+import CMSDashboardImage from './images/CMSDashboard.png'
+import CMSSirkulasiImage from './images/CMSSirkulasi.png'
+import CMSBookingImage from './images/CMSBooking.png'
+import CMSDendaImage from './images/CMSDenda.png'
+import CMSKatalogImage from './images/CMSKatalog.png'
+
+## 1. Latar Belakang & Identifikasi Kebutuhan
+
+**Perpus Asvi** merupakan proyek website perpustakaan yang dirancang untuk membantu memenuhi kebutuhan pengelolaan perpustakaan sekolah. Pada konsep awalnya, website ini direncanakan sebagai platform perpustakaan digital yang menyediakan katalog buku, peminjaman, serta akses terhadap berita.
+
+Namun, berdasarkan hasil wawancara dengan kepala sekolah dan pengurus perpustakaan, terdapat penyesuaian terhadap kebutuhan sistem. Pihak sekolah *tidak menginginkan* buku disediakan dalam bentuk *E-Book*. Mereka tetap ingin mempertahankan penggunaan buku fisik, tetapi membutuhkan cara yang lebih praktis bagi siswa untuk mencari dan memesan buku tanpa harus datang langsung ke perpustakaan.
+
+Selain itu, pihak sekolah membutuhkan sistem pengelolaan perpustakaan yang dapat membantu admin dalam mengelola data buku, memantau stok, serta mengatur proses peminjaman dan pengembalian. Mereka juga menginginkan mekanisme denda bagi anggota yang terlambat mengembalikan buku, disertai notifikasi pengingat mengenai tenggat waktu peminjaman.
+
+Website ini juga direncanakan sebagai media publikasi berita, baik untuk informasi internal sekolah maupun berita dari luar.
+
+## 2. Perubahan Konsep
+
+Setelah kebutuhan tersebut diketahui, konsep **Perpus Asvi** mengalami perubahan. Fungsi utamanya tidak lagi berfokus pada penyediaan buku digital, melainkan menjadi sistem pengelolaan perpustakaan fisik yang dilengkapi fitur pemesanan buku secara daring.
+
+Dengan pendekatan ini, website berperan sebagai jalan pintas bagi anggota untuk mencari dan memesan buku. Sementara itu, aktivitas pengelolaan koleksi, peminjaman, pengembalian, dan administrasi tetap ditangani melalui sistem **CMS**.
+
+## 3. Solusi yang Dirancang
+
+Untuk memenuhi kebutuhan tersebut, **Perpus Asvi** dirancang dengan dua bagian utama, yaitu **CMS Admin** dan **Front/Home User**.
+
+**CMS Admin** berfungsi sebagai pusat pengelolaan data dan operasional perpustakaan, sedangkan **Front/Home User** menjadi antarmuka yang digunakan langsung oleh siswa dan siswi untuk mengakses informasi buku, melakukan *booking*, serta membaca berita.
+
+Karena cakupan proyek cukup besar dan tidak memungkinkan untuk dikerjakan seorang diri, saya memanfaatkan AI seperti ChatGPT sebagai alat bantu selama proses perancangan dan pengembangan.
+
+## 4. Perancangan Antarmuka CMS
+
+**CMS Perpus Asvi** menggunakan tema gelap untuk memberikan tampilan yang lebih redup dan mengurangi kesan silau saat digunakan. Warna hijau dipilih sebagai warna utama karena menyesuaikan identitas visual **SMK As-Syafi'iyah**.
+
+Saya juga menerapkan beberapa elemen pendukung untuk meningkatkan kemudahan penggunaan, seperti kolom pencarian untuk membantu admin menemukan data dengan lebih cepat serta fitur *expand* dan *collapse* pada *sidebar* agar ruang kerja dapat disesuaikan dengan kebutuhan.
+
+## 5. Fitur Utama CMS
+
+### Dashboard Admin
+
+**Dashboard** menjadi halaman utama yang menyajikan ringkasan aktivitas perpustakaan. Admin dapat memantau informasi penting seperti jumlah koleksi buku, ketersediaan stok, jumlah anggota, pemesanan buku, transaksi peminjaman, keterlambatan pengembalian, serta berita terbaru.
+
+Penyajian statistik ini dirancang agar admin dapat memperoleh gambaran kondisi perpustakaan tanpa harus membuka setiap halaman pengelolaan secara terpisah.
+
+<ProjectImage
+  src={CMSDashboardImage}
+  alt="Dashboard CMS Perpus Asvi yang menampilkan ringkasan statistik dan aktivitas perpustakaan."
+  caption="Dashboard admin yang menyajikan ringkasan data koleksi buku, anggota, transaksi, dan aktivitas perpustakaan."
+/>
+
+### Sirkulasi Buku
+
+Halaman **Sirkulasi** digunakan untuk memantau aktivitas peminjaman dan pengembalian buku. Admin dapat melihat anggota yang sedang meminjam, telah mengembalikan, maupun terlambat mengembalikan buku.
+
+Untuk mempermudah penanganan keterlambatan, saya merancang indikator berupa tombol berwarna merah yang mengarahkan admin ke halaman **Kas Denda** ketika terdapat transaksi yang melewati batas waktu pengembalian.
+
+<ProjectImage
+  src={CMSSirkulasiImage}
+  alt="Halaman sirkulasi CMS Perpus Asvi yang menampilkan data peminjaman dan pengembalian buku."
+  caption="Halaman sirkulasi untuk memantau status peminjaman, pengembalian, serta keterlambatan anggota."
+/>
+
+### Booking Buku
+
+Halaman **Booking** digunakan untuk memantau pemesanan buku oleh anggota. Admin dapat melihat status pemesanan, mulai dari buku yang sedang dipesan, telah diambil, hingga pemesanan yang terlambat diambil.
+
+Fitur ini dirancang untuk mendukung konsep pemesanan buku secara daring tanpa menghilangkan proses peminjaman buku fisik di perpustakaan.
+
+<ProjectImage
+  src={CMSBookingImage}
+  alt="Halaman pengelolaan booking CMS Perpus Asvi yang menampilkan daftar pemesanan buku oleh anggota."
+  caption="Halaman booking untuk memantau daftar pesanan buku beserta status pengambilan oleh anggota."
+/>
+
+### Kas Denda
+
+**Kas Denda** merupakan bagian yang terhubung dengan proses sirkulasi buku. Halaman ini dirancang untuk membantu admin memantau anggota yang memiliki kewajiban pembayaran denda akibat keterlambatan pengembalian.
+
+Besaran denda mengikuti nominal yang dapat diatur melalui pengaturan website. Denda akan bertambah berdasarkan jumlah hari keterlambatan sesuai ketentuan yang telah ditetapkan.
+
+<ProjectImage
+  src={CMSDendaImage}
+  alt="Halaman Kas Denda CMS Perpus Asvi yang menampilkan data anggota dan denda keterlambatan pengembalian buku."
+  caption="Halaman Kas Denda untuk memantau kewajiban denda anggota berdasarkan keterlambatan pengembalian buku."
+/>
+
+### Katalog Buku
+
+**Katalog Buku** berfungsi sebagai pusat pengelolaan koleksi perpustakaan. Admin dapat melihat informasi buku seperti judul, pengarang, kode ISBN, kategori, dan jumlah stok.
+
+Selain melihat data, admin juga disediakan beberapa tindakan pengelolaan, seperti menambahkan buku baru, melihat detail buku, mengedit informasi, serta menghapus koleksi yang tidak lagi diperlukan.
+
+<ProjectImage
+  src={CMSKatalogImage}
+  alt="Halaman Katalog Buku CMS Perpus Asvi yang menampilkan daftar buku, pengarang, kategori, stok, dan opsi pengelolaan."
+  caption="Halaman katalog untuk mengelola koleksi buku, mulai dari melihat informasi hingga menambah, mengedit, dan menghapus data."
+/>
+
+## 6. Front/Home User
+
+Berbeda dengan **CMS Admin** yang berfungsi sebagai pusat pengelolaan data perpustakaan, **Front/Home User** merupakan antarmuka yang digunakan langsung oleh siswa dan siswi untuk mengakses layanan **Perpus Asvi**.
+
+Bagian ini dirancang untuk mempermudah anggota dalam menemukan koleksi buku, memperoleh informasi mengenai ketersediaan buku, melihat berbagai publikasi, serta mengakses layanan *booking*. **Front/Home User** terdiri dari lima halaman utama yang memiliki fungsi berbeda, tetapi saling melengkapi.
+
+### Halaman Beranda
+
+Halaman **Beranda** menjadi titik awal pengguna ketika mengakses **Perpus Asvi**. Pada bagian utama terdapat *banner* pengenalan yang memperkenalkan layanan perpustakaan sekaligus menyediakan kolom pencarian agar pengguna dapat langsung mencari buku yang diinginkan.
+
+Selain itu, halaman beranda menampilkan beberapa konten pilihan, seperti buku populer, koleksi terbaru, rekomendasi kategori, dan berita terbaru. Penyajian konten tersebut membantu pengguna menemukan bacaan menarik sekaligus mendapatkan informasi tanpa harus menelusuri seluruh halaman katalog terlebih dahulu.
+
+<ProjectImage
+  src={HomepageImage}
+  alt="Halaman beranda Perpus Asvi yang menampilkan banner pengenalan, kolom pencarian, dan bagian buku pilihan."
+  caption="Halaman beranda sebagai titik awal pengguna untuk mengenal layanan perpustakaan dan menemukan berbagai koleksi buku."
+/>
+
+### Halaman Katalog Buku
+
+Halaman **Katalog** merupakan tempat pengguna menjelajahi koleksi buku yang tersedia di perpustakaan. Pengguna dapat melihat berbagai koleksi dan menemukan buku yang ingin mereka baca atau pinjam.
+
+Untuk mempermudah pencarian, halaman ini dilengkapi kolom pencarian dan filter kategori. Dengan demikian, pengguna dapat mempersempit daftar koleksi berdasarkan kategori tertentu atau mencari buku secara langsung berdasarkan informasi yang mereka ketahui.
+
+<ProjectImage
+  src={KatalogImage}
+  alt="Halaman katalog Perpus Asvi yang menampilkan koleksi buku dan pilihan penyaringan berdasarkan kategori."
+  caption="Halaman katalog untuk menjelajahi koleksi buku dan menemukan judul yang diinginkan melalui pencarian maupun filter kategori."
+/>
+
+### Halaman Berita
+
+Selain menyediakan layanan informasi buku, **Perpus Asvi** juga dirancang sebagai media publikasi informasi. Halaman **Berita** menampilkan berbagai artikel dengan tipe konten yang beragam, seperti berita edukasi, opini, dan jenis berita lainnya.
+
+Melalui halaman ini, pengguna dapat mengakses informasi dan artikel yang dipublikasikan melalui sistem **Perpus Asvi**. Dengan begitu, website tidak hanya berfokus pada pengelolaan koleksi perpustakaan, tetapi juga menjadi salah satu sarana penyampaian informasi kepada warga sekolah.
+
+<ProjectImage
+  src={BeritaImage}
+  alt="Halaman berita Perpus Asvi yang menampilkan daftar artikel dan publikasi informasi."
+  caption="Halaman berita sebagai media publikasi artikel dan informasi, baik dari lingkungan sekolah maupun sumber luar."
+/>
+
+### Halaman Tentang Kami
+
+Halaman **Tentang Kami** menyediakan informasi mengenai **Perpus Asvi** dan tujuan pengembangannya. Konten di dalamnya mencakup latar belakang terbentuknya layanan perpustakaan, visi, misi, serta informasi lain yang membantu pengguna memahami tujuan dari keberadaan website ini.
+
+Halaman ini juga menjadi sarana untuk memperkenalkan identitas dan arah pengembangan **Perpus Asvi** kepada para penggunanya.
+
+<ProjectImage
+  src={TentangKamiImage}
+  alt="Halaman Tentang Kami Perpus Asvi yang berisi informasi latar belakang, visi, dan misi perpustakaan."
+  caption="Halaman Tentang Kami yang memperkenalkan identitas, latar belakang, serta visi dan misi Perpus Asvi."
+/>
+
+### Halaman Booking
+
+Halaman **Booking** merupakan bagian yang berkaitan langsung dengan aktivitas pengguna dalam memesan buku. Di halaman ini, pengguna dapat melihat daftar buku yang telah mereka *booking* melalui akun masing-masing.
+
+Keberadaan halaman ini memudahkan pengguna untuk memantau daftar pemesanan buku mereka dalam satu tempat, tanpa perlu mencari kembali buku tersebut melalui katalog.
+
+<ProjectImage
+  src={BookingImage}
+  alt="Halaman booking anggota Perpus Asvi yang menampilkan daftar buku yang telah dipesan oleh pengguna."
+  caption="Halaman booking pribadi untuk melihat dan memantau daftar pemesanan buku melalui akun anggota."
+/>
+
+## 7. Tantangan & Evaluasi Proses
+
+Salah satu tantangan dalam pengerjaan proyek ini adalah cakupan sistem yang cukup besar, sementara proses pengerjaan tidak dilakukan oleh tim. Untuk membantu proses tersebut, saya memanfaatkan AI sebagai pendamping dalam pengembangan.
+
+Di sisi lain, terdapat tahapan perancangan yang belum sempat saya lakukan secara menyeluruh. Setelah proses wawancara, saya langsung melanjutkan pengerjaan ke bagian **CMS** tanpa terlebih dahulu menyusun *user flow*, *use case*, *wireframe*, maupun dokumentasi perancangan lainnya.
+
+Hal ini menjadi salah satu evaluasi penting bagi saya. Tahapan analisis dan perancangan seharusnya dilakukan secara lebih terstruktur agar kebutuhan pengguna dapat diterjemahkan menjadi alur dan antarmuka yang lebih terarah.
+
+## 8. Status Proyek
+
+**Perpus Asvi** merupakan proyek berdasarkan permintaan kepala sekolah yang dirancang untuk membantu kebutuhan pengelolaan perpustakaan. Namun, proyek ini pada akhirnya *tidak dilanjutkan* ke tahap implementasi di lingkungan sekolah.
+
+Meskipun demikian, proses pengerjaannya memberikan pengalaman dalam memahami kebutuhan pengguna, merancang sistem dengan cakupan yang cukup besar, serta memanfaatkan AI sebagai alat bantu dalam proses pengembangan.

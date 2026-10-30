@@ -1,0 +1,27 @@
+:root {
+  scrollbar-color: #f97316 #18181b;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #18181b;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid #18181b;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #f59e0b, #f97316, #ef4444);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #fbbf24, #fb923c, #f87171);
+}
+
+::-webkit-scrollbar-corner {
+  background: #18181b;
+}

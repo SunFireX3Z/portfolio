@@ -10,6 +10,24 @@ import {
 import { publishedProjects } from '../data/projects'
 import Badge from '../components/ui/Badge'
 
+import AffinityIcon from '@/assets/icons/technologies/affinity.svg?url'
+import CanvaIcon from '@/assets/icons/technologies/canva.svg?url'
+import ChatGPTIcon from '@/assets/icons/technologies/chatgpt.svg?url'
+import CSSIcon from '@/assets/icons/technologies/css.svg?url'
+import FigmaIcon from '@/assets/icons/technologies/figma.svg?url'
+import GeminiIcon from '@/assets/icons/technologies/gemini.svg?url'
+import GitIcon from '@/assets/icons/technologies/git.svg?url'
+import GitHubCopilotIcon from '@/assets/icons/technologies/github-copilot.svg?url'
+import GitHubIcon from '@/assets/icons/technologies/github.svg?url'
+import HTMLIcon from '@/assets/icons/technologies/html5.svg?url'
+import JavaScriptIcon from '@/assets/icons/technologies/javascript.svg?url'
+import PHPIcon from '@/assets/icons/technologies/php.svg?url'
+import ReactIcon from '@/assets/icons/technologies/reactjs.svg?url'
+import TailwindIcon from '@/assets/icons/technologies/tailwind.svg?url'
+import TypeScriptIcon from '@/assets/icons/technologies/typescript.svg?url'
+import VSCodeIcon from '@/assets/icons/technologies/vscode.svg?url'
+import MySQLIcon from '@/assets/icons/technologies/mysql.svg'
+
 type MetadataCardProps = {
   icon: ReactNode
   label: string
@@ -17,16 +35,23 @@ type MetadataCardProps = {
 }
 
 const technologyLogos: Record<string, string> = {
-  Figma: 'https://cdn.simpleicons.org/figma/F24E1E',
-  React: 'https://cdn.simpleicons.org/react/61DAFB',
-  'Tailwind CSS': 'https://cdn.simpleicons.org/tailwindcss/06B6D4',
-  TypeScript: 'https://cdn.simpleicons.org/typescript/3178C6',
-  JavaScript: 'https://cdn.simpleicons.org/javascript/F7DF1E',
-  Laravel: 'https://cdn.simpleicons.org/laravel/FF2D20',
-  PHP: 'https://cdn.simpleicons.org/php/777BB4',
-  HTML: 'https://cdn.simpleicons.org/html5/E34F26',
-  CSS: 'https://cdn.simpleicons.org/css/663399',
-  Vite: 'https://cdn.simpleicons.org/vite/646CFF',
+  Affinity: AffinityIcon,
+  Canva: CanvaIcon,
+  ChatGPT: ChatGPTIcon,
+  CSS: CSSIcon,
+  Figma: FigmaIcon,
+  Gemini: GeminiIcon,
+  Git: GitIcon,
+  'GitHub Copilot': GitHubCopilotIcon,
+  GitHub: GitHubIcon,
+  HTML: HTMLIcon,
+  JavaScript: JavaScriptIcon,
+  PHP: PHPIcon,
+  React: ReactIcon,
+  'Tailwind CSS': TailwindIcon,
+  TypeScript: TypeScriptIcon,
+  'Visual Studio Code': VSCodeIcon,
+  'MySQL': MySQLIcon
 }
 
 function formatProjectDate(date: string): string {
@@ -213,7 +238,6 @@ function ProjectDetail() {
                         alt=""
                         aria-hidden="true"
                         className="size-5 shrink-0 object-contain"
-                        loading="lazy"
                       />
                     ) : null
                   }

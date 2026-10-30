@@ -19,7 +19,7 @@ const navigation = [
 ]
 
 const contactLinks = [
-  { label: 'Email', href: 'mailto:', icon: Mail },
+  { label: 'Email', href: 'mailto:randysaputra1203@gmail.com', icon: Mail },
   { label: 'GitHub', href: 'https://github.com/SunFireX3Z', icon: SiGithub },
 ]
 

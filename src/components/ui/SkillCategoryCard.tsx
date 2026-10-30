@@ -42,7 +42,7 @@ function SkillCategoryCard({
 
   return (
     <Card
-      variant="interactive"
+      variant="tilt"
       padding="none"
       className="h-full rounded-2xl transition-colors duration-300 hover:border-orange-500/30"
     >

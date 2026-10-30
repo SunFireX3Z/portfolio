@@ -10,7 +10,7 @@
     return (
       <section
         id="projects"
-        className="relative scroll-mt-22 flex min-h-screen flex-col justify-center py-12 md:py-14">
+        className="relative scroll-mt-24 flex min-h-screen flex-col justify-center py-12 md:py-14">
 
         <SectionDivider />
 

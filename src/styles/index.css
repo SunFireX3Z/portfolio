@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@import "@/styles/theme.css";
+@import "@/styles/card-effects.css";
+@import "@/styles/profile-effects.css";
+@import "@/styles/ticker.css";
+@import "@/styles/background-effects.css";
+@import "@/styles/divider-effects.css";
+@import "@/styles/scrollbar.css";

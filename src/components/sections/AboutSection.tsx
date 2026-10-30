@@ -6,8 +6,9 @@ import {
   SiYoutube,
 } from 'react-icons/si'
 import { FaLinkedinIn } from 'react-icons/fa'
-import SectionBadge from '../ui/SectionBadge'
-import SectionDivider from '../ui/SectionDivider'
+import SectionBadge from '@/components/ui/SectionBadge'
+import SectionDivider from '@/components/ui/SectionDivider'
+import Card from '@/components/ui/Card'
 
 const journey = [
   {
@@ -19,7 +20,7 @@ const journey = [
   },
   {
     number: '02',
-    title: 'Web Developer',
+    title: 'Frontend Developer',
     description:
       'Melalui jurusan Rekayasa Perangkat Lunak (RPL), saya mempelajari dasar pemrograman dan pengembangan web, mulai dari HTML, CSS, JavaScript, hingga PHP.',
     icon: Code2,
@@ -34,23 +35,23 @@ const journey = [
 ]
 
 const socials = [
-  { label: 'YouTube', icon: SiYoutube, href: 'https://youtube.com' },
-  { label: 'Instagram', icon: SiInstagram, href: 'https://instagram.com' },
-  { label: 'LinkedIn', icon: FaLinkedinIn, href: 'https://linkedin.com' },
+  { label: 'YouTube', icon: SiYoutube, href: 'https://www.youtube.com/@SunFireX3Z' },
+  { label: 'Instagram', icon: SiInstagram, href: 'https://www.instagram.com/sunfirex3z?psln=bW4ybHVicjM3cWUw' },
+  { label: 'LinkedIn', icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/randy-saputra-3523a241b/' },
   {
     label: 'GitHub',
     icon: SiGithub,
     href: 'https://github.com/SunFireX3Z',
   },
-  { label: 'Email', icon: Mail, href: 'mailto:' },
+  { label: 'Email', icon: Mail, href: 'mailto:randysaputra1203@gmail.com' },
 ]
 
 function AboutSection() {
   return (
     <section
       id="about"
-      className="relative flex min-h-screen scroll-mt-22 flex-col justify-center overflow-hidden py-12 md:py-14">
-        
+      className="relative flex min-h-screen scroll-mt-24 flex-col justify-center overflow-hidden py-12 md:py-14"
+    >
       <SectionDivider />
 
       <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 px-6 md:grid-cols-2 md:gap-12 lg:px-8">
@@ -74,8 +75,7 @@ function AboutSection() {
               <span className="font-semibold text-orange-500">
                 SunFireX3Z
               </span>
-              , seorang pengembang web dan desainer antarmuka dari Jakarta,
-              Indonesia.
+              , seorang frontend developer, graphic designer, dan desainer antarmuka dari Jakarta, Indonesia.
             </p>
 
             <p>
@@ -86,9 +86,7 @@ function AboutSection() {
             </p>
 
             <p>
-              Sekarang saya tertarik menggabungkan desain dan teknologi untuk
-              menciptakan pengalaman digital yang menarik secara visual dan
-              mudah digunakan.
+              Sekarang, saya berfokus menggabungkan kreativitas desain grafis dengan teknologi pengembangan frontend untuk menciptakan pengalaman digital yang menarik secara visual dan fungsional.
             </p>
           </div>
 
@@ -124,7 +122,7 @@ function AboutSection() {
                 <Icon size={20} />
               </div>
 
-              <div className="relative rounded-2xl border border-white/10 bg-surface p-4 transition-colors hover:border-orange-500/40 md:p-5">
+              <Card variant="tilt" padding="md">
                 <span className="absolute right-4 top-3 text-2xl font-bold text-orange-500/70">
                   {number}
                 </span>
@@ -136,7 +134,7 @@ function AboutSection() {
                 <p className="text-sm leading-6 text-text-secondary">
                   {description}
                 </p>
-              </div>
+              </Card>
             </article>
           ))}
         </div>

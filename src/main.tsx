@@ -7,7 +7,7 @@ import { loadSlim } from '@tsparticles/slim'
 import App from './App'
 import ScrollToTop from './components/ScrollToTop'
 import MDXProvider from './components/ui/MDXProvider'
-import './index.css'
+import '@/styles/index.css'
 
 const initParticles = async (
   engine: Parameters<typeof loadSlim>[0],

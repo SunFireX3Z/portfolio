@@ -141,7 +141,7 @@ export default function ExperienceEducationSection() {
   return (
     <section
       id="experience"
-      className="relative scroll-mt-22 border-t border-white/5 px-6 py-20 text-text-primary lg:px-8 lg:py-28"
+      className="relative scroll-mt-24 border-t border-white/5 px-6 py-20 text-text-primary lg:px-8 lg:py-28"
     >
       <SectionDivider />
 

@@ -6,71 +6,12 @@ import {
   ArrowUpRight,
   Award,
   FileBadge,
-  ImageOff,
   X,
 } from 'lucide-react'
 import { achievements, type Achievement } from '@/data/achievements'
 import Card from '../ui/Card'
 import SectionBadge from '../ui/SectionBadge'
-import Button from '../ui/Button'
 import SectionDivider from '../ui/SectionDivider'
-
-function PlaceholderImage({
-  label,
-  className = '',
-}: {
-  label: string
-  className?: string
-}) {
-  return (
-    <div
-      role="img"
-      aria-label={label}
-      className={`flex min-h-64 w-full flex-col items-center justify-center gap-3 rounded-lg bg-black/20 p-6 text-text-secondary ${className}`}
-    >
-      <div className="flex size-14 items-center justify-center rounded-2xl border border-white/10 bg-surface">
-        <ImageOff size={25} strokeWidth={1.5} aria-hidden="true" />
-      </div>
-      <p className="text-center text-sm">{label}</p>
-    </div>
-  )
-}
-
-function FallbackImage({
-  src,
-  alt,
-  fallbackLabel,
-  className = '',
-  imageClassName = '',
-  loading,
-}: {
-  src: string
-  alt: string
-  fallbackLabel: string
-  className?: string
-  imageClassName?: string
-  loading?: 'eager' | 'lazy'
-}) {
-  const [hasError, setHasError] = useState(false)
-
-  useEffect(() => setHasError(false), [src])
-
-  if (hasError) {
-    return <PlaceholderImage label={fallbackLabel} className={className} />
-  }
-
-  return (
-    <div className={`relative ${className}`}>
-      <img
-        src={src}
-        alt={alt}
-        loading={loading}
-        className={imageClassName}
-        onError={() => setHasError(true)}
-      />
-    </div>
-  )
-}
 
 function AchievementCard({
   achievement,
@@ -81,6 +22,33 @@ function AchievementCard({
 }) {
   const certificate = achievement.type === 'Sertifikat'
   const Icon = certificate ? FileBadge : Award
+
+  const [loadedImages, setLoadedImages] = useState<string[]>([])
+  const [failedImages, setFailedImages] = useState<string[]>([])
+
+  useEffect(() => {
+    achievement.images.forEach(image => {
+      const img = new Image()
+
+      img.onload = () => {
+        setLoadedImages(previous =>
+          previous.includes(image.src) ? previous : [...previous, image.src],
+        )
+      }
+
+      img.onerror = () => {
+        setFailedImages(previous =>
+          previous.includes(image.src) ? previous : [...previous, image.src],
+        )
+      }
+
+      img.src = image.src
+    })
+  }, [achievement.images])
+
+  const hasImages =
+    achievement.images.length > 0 &&
+    loadedImages.length > 0
 
   const accent = certificate
     ? {
@@ -113,6 +81,7 @@ function AchievementCard({
             />
           ))}
         </div>
+
         <Icon size={17} className={accent.icon} aria-hidden="true" />
       </div>
 
@@ -123,19 +92,22 @@ function AchievementCard({
           </h3>
 
           <div className="mt-3 flex items-center gap-3">
-            <FallbackImage
-              src={achievement.organizationLogo}
-              alt={achievement.organizationLogoAlt}
-              fallbackLabel="Logo belum tersedia"
-              loading="lazy"
+            <div
               className={`size-10 shrink-0 overflow-hidden rounded-full border border-white/10 bg-surface p-1 ring-2 ${accent.avatar}`}
-              imageClassName="size-full object-contain"
-            />
+            >
+              <img
+                src={achievement.organizationLogo}
+                alt={achievement.organizationLogoAlt}
+                loading="lazy"
+                className="size-full object-contain"
+              />
+            </div>
 
             <div className="min-w-0">
               <p className="text-sm font-medium text-text-primary">
                 {achievement.organization}
               </p>
+
               <p className="text-xs text-text-secondary">
                 {achievement.type}
               </p>
@@ -152,16 +124,15 @@ function AchievementCard({
             {achievement.date}
           </span>
 
-          <Button
+          <button
             type="button"
-            variant="tertiary"
-            size="sm"
+            disabled={!hasImages}
             onClick={() => onView(achievement)}
-            rightIcon={<ArrowUpRight size={13} aria-hidden="true" />}
-            className={accent.link}
+            className={`inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40 ${accent.link}`}
           >
             {certificate ? 'Lihat Sertifikat' : 'Lihat Penghargaan'}
-          </Button>
+            <ArrowUpRight size={13} aria-hidden="true" />
+          </button>
         </div>
       </div>
     </Card>
@@ -177,11 +148,10 @@ function AchievementModal({
 }) {
   const [visible, setVisible] = useState(false)
   const [currentImage, setCurrentImage] = useState(0)
-  const [imageErrors, setImageErrors] = useState<string[]>([])
   const closeTimer = useRef<number | null>(null)
 
   const certificate = achievement.type === 'Sertifikat'
-  const { images } = achievement
+  const images = achievement.images
   const current = images[currentImage]
   const multiple = images.length > 1
 
@@ -197,7 +167,11 @@ function AchievementModal({
 
   const changeImage = useCallback(
     (step: number) => {
-      setCurrentImage(index => (index + step + images.length) % images.length)
+      if (images.length <= 1) return
+
+      setCurrentImage(
+        index => (index + step + images.length) % images.length,
+      )
     },
     [images.length],
   )
@@ -269,40 +243,27 @@ function AchievementModal({
             </p>
           </div>
 
-          <Button
+          <button
             type="button"
-            variant="tertiary"
-            size="sm"
             onClick={closeModal}
             aria-label="Tutup modal"
-            className="size-10 shrink-0 rounded-xl border border-white/10 px-0! text-text-secondary hover:border-orange-500/50 hover:text-orange-400"
+            className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-white/10 text-text-secondary transition-colors hover:border-orange-500/50 hover:text-orange-400 focus-visible:outline-2 focus-visible:outline-orange-500"
           >
             <X size={20} aria-hidden="true" />
-          </Button>
+          </button>
         </header>
 
         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-black/20 p-4 sm:p-6">
-          {current ? (
+          {current && (
             <div className="mx-auto w-full max-w-3xl">
               <div className="relative">
-                {imageErrors.includes(current.src) ? (
-                  <PlaceholderImage label="Gambar belum tersedia" />
-                ) : (
-                  <img
-                    key={current.src}
-                    src={current.src}
-                    alt={current.alt}
-                    draggable={false}
-                    onError={() =>
-                      setImageErrors(previous =>
-                        previous.includes(current.src)
-                          ? previous
-                          : [...previous, current.src],
-                      )
-                    }
-                    className="mx-auto max-h-[60dvh] w-full select-none rounded-lg object-contain"
-                  />
-                )}
+                <img
+                  key={current.src}
+                  src={current.src}
+                  alt={current.alt}
+                  draggable={false}
+                  className="mx-auto max-h-[60dvh] w-full select-none rounded-lg object-contain"
+                />
 
                 {multiple && (
                   <>
@@ -336,7 +297,9 @@ function AchievementModal({
                         type="button"
                         onClick={() => setCurrentImage(index)}
                         aria-label={`Gambar ${index + 1}`}
-                        aria-current={index === currentImage ? 'true' : undefined}
+                        aria-current={
+                          index === currentImage ? 'true' : undefined
+                        }
                         className={`size-2.5 rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-500 ${
                           index === currentImage
                             ? 'bg-orange-500'
@@ -356,8 +319,6 @@ function AchievementModal({
                 {current.alt}
               </p>
             </div>
-          ) : (
-            <PlaceholderImage label="Gambar sertifikat atau penghargaan belum tersedia" />
           )}
         </div>
 
@@ -377,7 +338,7 @@ function CertificatesSection() {
   return (
     <section
       id="certificates"
-      className="relative scroll-mt-22 overflow-hidden py-16 md:py-20"
+      className="relative scroll-mt-24 overflow-hidden py-16 md:py-20"
     >
       <SectionDivider />
 

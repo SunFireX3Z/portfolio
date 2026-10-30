@@ -2,10 +2,10 @@ import { ArrowUpRight } from 'lucide-react'
 import {
   SiGithub,
   SiCss,
-  SiJavascript,
   SiReact,
   SiTailwindcss,
   SiTypescript,
+  SiFigma
 } from '@icons-pack/react-simple-icons'
 import { VscVscode } from 'react-icons/vsc'
 import profileImage from '@/assets/images/profile/profile.png'
@@ -17,7 +17,7 @@ import Ticker from '../ui/Ticker'
 const technologies = [
   { name: 'GitHub', Icon: SiGithub },
   { name: 'CSS', Icon: SiCss },
-  { name: 'JavaScript', Icon: SiJavascript },
+  { name: 'Figma', Icon: SiFigma },
   { name: 'React', Icon: SiReact },
   { name: 'Tailwind CSS', Icon: SiTailwindcss },
   { name: 'TypeScript', Icon: SiTypescript },
@@ -28,13 +28,13 @@ function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex scroll-mt-22 flex-col overflow-hidden"
+      className="relative flex scroll-mt-24 flex-col overflow-hidden"
       style={{ minHeight: 'calc(100svh - 73px)' }}
     >
       <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-10 px-6 py-10 md:grid-cols-2 md:gap-12 md:py-12 lg:px-8">
         <div className="relative z-10 space-y-6">
           <SectionBadge>
-            UI Designer &amp; Graphic Designer
+            Frontend Dev • UI/UX • Graphic Designer
           </SectionBadge>
 
           <div className="space-y-5">
@@ -46,10 +46,7 @@ function HeroSection() {
             </h1>
 
             <p className="max-w-xl text-base leading-8 text-text-secondary md:text-lg">
-              Saya seorang UI/UX Designer dan Graphic Designer
-              yang suka mewujudkan ide menjadi antarmuka yang
-              elegan, fungsional, dan berorientasi pada
-              pengalaman pengguna.
+              Saya seorang Frontend Developer dan Graphic Designer yang suka memadukan kreativitas visual dengan teknologi untuk membangun antarmuka web yang interaktif, elegan, dan fungsional
             </p>
           </div>
 
@@ -94,7 +91,7 @@ function HeroSection() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-lg">
+        <div className="relative mx-auto w-full max-w-lg profile-float">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -inset-3 rounded-3xl border border-orange-500/20"
@@ -141,7 +138,7 @@ function HeroSection() {
         items={[
           'UI/UX Design',
           'Graphic Design',
-          'Visual Design',
+          'Frontend Developer',
         ]}
       />
     </section>

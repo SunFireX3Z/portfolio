@@ -9,17 +9,20 @@ function ScrollToTop() {
     if (navigationType === 'POP') return
 
     if (hash) {
-      document.querySelector(hash)?.scrollIntoView({
-        behavior: 'instant',
+      const id = decodeURIComponent(hash.slice(1))
+
+      document.getElementById(id)?.scrollIntoView({
+        behavior: 'smooth',
         block: 'start',
       })
+
       return
     }
 
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'instant',
+      behavior: 'smooth',
     })
   }, [pathname, hash, navigationType])
 

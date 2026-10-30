@@ -4,12 +4,13 @@ import SkillCategoryCard from '@/components/ui/SkillCategoryCard'
 import TechnologyRow from '@/components/ui/TechnologyRow'
 import SectionDivider from '@/components/ui/SectionDivider'
 import { skillCategories, technologies } from '@/data/skills'
+import TechnologyList from '@/components/ui/TechnologyList'
 
 function SkillsSection() {
   return (
     <section
       id="skills"
-      className="relative scroll-mt-22 border-t border-white/5 py-20 md:py-28"
+      className="relative scroll-mt-24 border-t border-white/5 py-20 md:py-28"
     >
       <SectionDivider />
 
@@ -64,14 +65,7 @@ function SkillsSection() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {technologies.map((technology) => (
-              <TechnologyRow
-                key={technology.name}
-                technology={technology}
-              />
-            ))}
-          </div>
+          <TechnologyList technologies={technologies} />
         </div>
 
         <div className="relative overflow-hidden rounded-2xl border border-orange-500/20 bg-slate-900/70 p-6 md:p-8 lg:p-10">
@@ -115,7 +109,7 @@ function SkillsSection() {
                 </span>
 
                 <h4 className="text-lg font-semibold text-white">
-                  Pengembangan Web
+                  Pengembangan Frontend
                 </h4>
 
                 <p className="mt-2 text-base leading-7 text-slate-400">

@@ -1,0 +1,20 @@
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(var(--ticker-distance, -50%));
+  }
+}
+
+.ticker-track {
+  animation: ticker-scroll var(--ticker-duration, 25s) linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}

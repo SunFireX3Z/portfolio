@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { Menu, X } from 'lucide-react'
@@ -10,7 +9,6 @@ type NavItem = {
 }
 
 type NavbarProps = {
-  logo?: string
   name?: string
   items?: NavItem[]
   activeItem?: string
@@ -19,7 +17,7 @@ type NavbarProps = {
 const defaultItems: NavItem[] = [
   { label: 'Beranda', href: '#home' },
   { label: 'Tentang', href: '#about' },
-  { label: 'Proyek', href: '/projects' },
+  { label: 'Proyek', href: '#projects' },
   { label: 'Keahlian', href: '#skills' },
   { label: 'Pengalaman', href: '#experience' },
   { label: 'Sertifikat', href: '#certificates' },
@@ -27,7 +25,6 @@ const defaultItems: NavItem[] = [
 ]
 
 function Navbar({
-  logo,
   name = 'SunFireX3Z',
   items = defaultItems,
   activeItem = 'Beranda',
@@ -71,35 +68,35 @@ function Navbar({
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-background">
+    <header className="sticky top-0 z-50 w-full bg-linear-to-b from-background via-background/90 to-transparent backdrop-blur-xs">
       <nav
         aria-label="Navigasi utama"
         className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 lg:px-8 lg:py-5"
       >
         <Link
           to="/#home"
-          onClick={closeMenu}
           className="flex shrink-0 items-center gap-3"
-          aria-label={`${name} - Beranda`}
         >
-          {logo ? (
-            <img
-              src={logo}
-              alt=""
-              className="size-11 object-contain"
-            />
-          ) : (
-            <span className="flex size-11 items-center justify-center rounded-xl bg-linear-to-br from-primary to-accent text-lg font-bold text-white">
-              S
-            </span>
-          )}
+          <img
+            src="/logo.svg"
+            alt=""
+            className="size-11 object-contain"
+          />
 
-          <span className="text-lg font-bold text-text-primary">
-            {name}
-          </span>
+          <div className="flex flex-col">
+            <span className="text-lg font-extrabold tracking-tight">
+              <span className="bg-linear-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+                SunFire
+              </span>
+              <span className="text-text-primary">X3Z</span>
+            </span>
+
+            <span className="text-xs font-medium tracking-wide text-text-secondary">
+              Randy Saputra
+            </span>
+          </div>
         </Link>
 
-        {/* Navigasi desktop */}
         <div className="hidden items-center gap-2 lg:flex lg:gap-4 xl:gap-6">
           {items.map((item) => {
             const isActive = active === item.label
@@ -136,7 +133,6 @@ function Navbar({
           })}
         </div>
 
-        {/* Tombol hamburger untuk layar kecil */}
         <button
           type="button"
           aria-label={menuOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'}
@@ -154,6 +150,7 @@ function Navbar({
                   : 'rotate-0 scale-100 opacity-100'
               }`}
             />
+
             <X
               aria-hidden="true"
               className={`absolute size-5 transition-[opacity,transform] duration-200 ${
@@ -166,12 +163,11 @@ function Navbar({
         </button>
       </nav>
 
-      {/* Navigasi mobile */}
       <div
         id="mobile-navigation"
         aria-hidden={!menuOpen}
         inert={!menuOpen}
-        className={`grid overflow-hidden border-t border-white/5 transition-[grid-template-rows,opacity] duration-300 ease-in-out motion-reduce:transition-none lg:hidden ${
+        className={`absolute inset-x-0 top-full z-50 grid overflow-hidden border-t border-white/5 bg-background/95 shadow-xl backdrop-blur-md transition-[grid-template-rows,opacity] duration-300 ease-in-out motion-reduce:transition-none lg:hidden ${
           menuOpen
             ? 'grid-rows-[1fr] opacity-100'
             : 'grid-rows-[0fr] opacity-0'

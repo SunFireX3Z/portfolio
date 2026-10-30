@@ -1,3 +1,4 @@
+import Card from '@/components/ui/Card'
 import type { Technology } from '@/data/skills'
 
 type TechnologyRowProps = {
@@ -13,7 +14,12 @@ function TechnologyRow({ technology }: TechnologyRowProps) {
       : technology.iconColor
 
   return (
-    <article className="flex min-h-24 items-center gap-4 rounded-xl border border-white/10 bg-slate-900/50 p-4 transition-colors duration-300 hover:border-orange-400/30 hover:bg-slate-900 md:min-h-28 md:gap-5 md:p-5">
+    <Card
+      variant="interactive"
+      padding="md"
+      className="min-h-24 md:min-h-28"
+      contentClassName="flex-row items-center gap-4 md:gap-5"
+    >
       <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-slate-950 p-2.5 md:size-14 md:p-3">
         <Icon
           className="size-full"
@@ -31,7 +37,7 @@ function TechnologyRow({ technology }: TechnologyRowProps) {
           {technology.category}
         </p>
       </div>
-    </article>
+    </Card>
   )
 }
 
