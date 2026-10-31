@@ -7,6 +7,7 @@ import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import path from 'node:path'
 
 export default defineConfig({
+  base: '/portfolio/',
   plugins: [
     mdx({
       providerImportSource: '@mdx-js/react',

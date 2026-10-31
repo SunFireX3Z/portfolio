@@ -25,7 +25,6 @@ const defaultItems: NavItem[] = [
 ]
 
 function Navbar({
-  name = 'SunFireX3Z',
   items = defaultItems,
   activeItem = 'Beranda',
 }: NavbarProps) {

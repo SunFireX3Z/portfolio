@@ -17,7 +17,6 @@ import ReactImage from '@/assets/icons/technologies/reactjs.svg?url'
 import TailwindImage from '@/assets/icons/technologies/tailwind.svg?url'
 import TypeScriptImage from '@/assets/icons/technologies/typescript.svg?url'
 import VSCodeImage from '@/assets/icons/technologies/vscode.svg?url'
-import PixellabImage from '@/assets/icons/technologies/pixellab.svg?url'
 
 export type SkillCategory = {
   number: string

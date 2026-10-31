@@ -24,7 +24,6 @@ function AchievementCard({
   const Icon = certificate ? FileBadge : Award
 
   const [loadedImages, setLoadedImages] = useState<string[]>([])
-  const [failedImages, setFailedImages] = useState<string[]>([])
 
   useEffect(() => {
     achievement.images.forEach(image => {
@@ -32,12 +31,6 @@ function AchievementCard({
 
       img.onload = () => {
         setLoadedImages(previous =>
-          previous.includes(image.src) ? previous : [...previous, image.src],
-        )
-      }
-
-      img.onerror = () => {
-        setFailedImages(previous =>
           previous.includes(image.src) ? previous : [...previous, image.src],
         )
       }

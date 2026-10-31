@@ -1,7 +1,6 @@
 
 import SectionBadge from '@/components/ui/SectionBadge'
 import SkillCategoryCard from '@/components/ui/SkillCategoryCard'
-import TechnologyRow from '@/components/ui/TechnologyRow'
 import SectionDivider from '@/components/ui/SectionDivider'
 import { skillCategories, technologies } from '@/data/skills'
 import TechnologyList from '@/components/ui/TechnologyList'
