@@ -18,7 +18,7 @@ const initParticles = async (
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ParticlesProvider init={initParticles}>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <MDXProvider>
           <ScrollToTop />
           <App />

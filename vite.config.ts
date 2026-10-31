@@ -6,8 +6,9 @@ import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import path from 'node:path'
 
-export default defineConfig({
-  base: '/portfolio/',
+export default defineConfig(({ command }) => ({
+  base: command === 'serve' ? '/' : '/portfolio/',
+
   plugins: [
     mdx({
       providerImportSource: '@mdx-js/react',
@@ -19,9 +20,10 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+
   resolve: {
     alias: {
       '@': path.resolve(import.meta.dirname, './src'),
     },
   },
-})
+}))
