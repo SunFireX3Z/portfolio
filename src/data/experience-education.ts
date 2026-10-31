@@ -9,6 +9,9 @@ export type TimelineItem = {
   logoAlt: string
 }
 
+const publicAsset = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
+
 export const education: TimelineItem[] = [
   {
     id: 'education-smk',
@@ -22,7 +25,7 @@ export const education: TimelineItem[] = [
       'Mempelajari perancangan basis data dan pemodelan sistem menggunakan UML.',
       'Mengenal proses perancangan antarmuka dan pengalaman pengguna.',
     ],
-    logo: '/images/logo/As-Syafiiyah.png',
+    logo: publicAsset('images/logo/As-Syafiiyah.png'),
     logoAlt: 'Logo SMK As-Syafi’iyah 01 Jakarta',
   },
 ]
@@ -40,7 +43,7 @@ export const experiences: TimelineItem[] = [
       'Membuat aplikasi untuk membantu perhitungan anggaran.',
       'Mendesain banner untuk kegiatan resmi instansi.',
     ],
-    logo: '/images/logo/Lambang_Kota_Jakarta_Timur.png',
+    logo: publicAsset('images/logo/Lambang_Kota_Jakarta_Timur.png'),
     logoAlt: 'Logo Kantor Camat Jatinegara',
   },
   {
@@ -54,7 +57,7 @@ export const experiences: TimelineItem[] = [
       'Mengembangkan aplikasi Point of Sale (POS).',
       'Membantu pengelolaan data transaksi Koperasi Sekolah dan BMT.',
     ],
-    logo: '/images/logo/As-Syafiiyah.png',
+    logo: publicAsset('images/logo/As-Syafiiyah.png'),
     logoAlt: 'Logo institusi sekolah',
   },
 ]

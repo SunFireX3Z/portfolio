@@ -77,7 +77,7 @@ function Navbar({
           className="flex shrink-0 items-center gap-3"
         >
           <img
-            src="/logo.svg"
+            src={`${import.meta.env.BASE_URL}logo.svg`}
             alt=""
             className="size-11 object-contain"
           />
