@@ -1,0 +1,21 @@
+@keyframes featured-project-progress {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.project-progress-bar {
+  width: 0%;
+  animation: featured-project-progress 10s linear forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-progress-bar {
+    animation: none;
+    width: 100%;
+  }
+}

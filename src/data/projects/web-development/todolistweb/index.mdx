@@ -1,0 +1,71 @@
+---
+slug: todolistweb
+title: TodoListWeb — Manajemen Tugas
+publish: true
+featured: false
+description: Aplikasi manajemen tugas berbasis web yang dirancang untuk memenuhi standar Uji Sertifikasi Kompetensi (USK). Berfokus pada kemudahan pelacakan tugas harian dan statistik penyelesaian kerja.
+image: thumbnail.png
+category: Web Development
+projectType: Proyek UKK
+startDate: null
+technologies:
+  - HTML
+  - PHP
+  - MySQL
+  - Bootstrap
+role: Web Developer
+duration: 2 Hari
+status: Selesai
+demoLink: null
+---
+
+import TodolistImage from './TodolistWeb.png'
+
+## Tentang Proyek
+
+**TodoListWeb** merupakan website manajemen tugas yang dikembangkan sebagai bagian dari Uji Sertifikasi Kompetensi (USK). Website ini dirancang untuk membantu pengguna mencatat, mengelola, dan memantau pekerjaan harian melalui daftar tugas yang terorganisasi.
+
+Pengguna dapat membuat tugas baru, memperbarui informasi pekerjaan, menentukan tingkat prioritas, serta mengubah status tugas setelah menyelesaikannya. Seluruh data tugas disimpan dalam basis data sehingga informasi pekerjaan tetap tersedia dan dapat ditinjau kembali.
+
+## Fitur Utama
+
+### Manajemen Tugas
+
+Website menyediakan fitur pengelolaan tugas yang memungkinkan pengguna melakukan beberapa tindakan:
+
+- **Tambah Tugas:** Membuat tugas baru dengan mengisi informasi yang diperlukan.
+- **Edit Tugas:** Memperbarui informasi tugas yang sudah tersimpan.
+- **Hapus Tugas:** Menghapus tugas yang tidak lagi diperlukan.
+
+### Pengelompokan Status Tugas
+
+Untuk mempermudah pemantauan pekerjaan, daftar tugas dibagi menjadi dua kelompok berdasarkan status penyelesaiannya:
+
+- **Belum Selesai:** Menampilkan tugas yang masih perlu dikerjakan. Pengguna dapat menekan tombol centang untuk menandai tugas sebagai selesai.
+- **Sudah Selesai:** Menampilkan tugas yang telah dituntaskan, termasuk informasi tanggal penyelesaiannya. Data tetap tersimpan sehingga pengguna dapat melihat kembali tugas yang sudah selesai.
+
+Ketika sebuah tugas ditandai selesai, statusnya diperbarui dan tugas tersebut berpindah dari daftar belum selesai ke daftar sudah selesai.
+
+### Dashboard dan Ringkasan Tugas
+
+Dashboard menyajikan ringkasan informasi pekerjaan, seperti jumlah seluruh tugas, jumlah tugas yang sudah selesai, dan jumlah tugas yang masih tertunda. Informasi ini membantu pengguna memperoleh gambaran perkembangan pekerjaan secara keseluruhan.
+
+### Pencarian dan Pengurutan
+
+Fitur pencarian membantu pengguna menemukan tugas tertentu berdasarkan informasi yang tersedia. Sementara itu, fitur pengurutan memungkinkan daftar tugas ditampilkan berdasarkan urutan yang dipilih agar informasi lebih mudah ditelusuri.
+
+### Pagination
+
+Pagination membagi daftar tugas ke dalam beberapa halaman. Dengan demikian, pengguna dapat menelusuri daftar pekerjaan secara bertahap tanpa harus menampilkan seluruh data dalam satu halaman.
+
+## Tampilan Website
+
+Antarmuka TodoListWeb menggunakan tampilan dashboard yang menggabungkan ringkasan pekerjaan dan daftar tugas dalam satu halaman. Daftar tugas yang belum selesai dan sudah selesai ditempatkan secara terpisah agar pengguna dapat membedakan pekerjaan yang masih harus dilakukan dengan pekerjaan yang telah dituntaskan.
+
+Informasi seperti tanggal dan tingkat prioritas turut ditampilkan pada daftar tugas untuk membantu pengguna mengenali detail setiap pekerjaan.
+
+<ProjectImage
+  src={TodolistImage}
+  alt="Dashboard utama TodoListWeb"
+  caption="Dashboard utama TodoListWeb yang menampilkan ringkasan tugas, tingkat prioritas, serta daftar pekerjaan berdasarkan status penyelesaiannya."
+/>

@@ -1,0 +1,38 @@
+@keyframes project-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes project-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.project-page-slide-in-right {
+  animation: project-slide-right 350ms ease-out both;
+}
+
+.project-page-slide-in-left {
+  animation: project-slide-left 350ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-page-slide-in-right,
+  .project-page-slide-in-left {
+    animation: none;
+  }
+}

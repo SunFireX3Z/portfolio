@@ -13,8 +13,9 @@ import ProjectCard from '../components/ui/ProjectCard'
 import Pagination from '../components/ui/Pagination'
 
 type SortOption = 'newest' | 'title-asc' | 'title-desc'
+type SlideDirection = 'right' | 'left'
 
-const PROJECTS_PER_PAGE = 6
+const PROJECTS_PER_PAGE = 9
 
 const categoryColors: Record<string, string> = {
   'UI/UX Design':
@@ -30,6 +31,8 @@ function Projects() {
   const [selectedCategory, setSelectedCategory] = useState('Semua')
   const [sortBy, setSortBy] = useState<SortOption>('newest')
   const [currentPage, setCurrentPage] = useState(1)
+  const [slideDirection, setSlideDirection] =
+    useState<SlideDirection>('right')
 
   const categories = useMemo(
     () => [
@@ -83,6 +86,7 @@ function Projects() {
 
   useEffect(() => {
     setCurrentPage(1)
+    setSlideDirection('right')
   }, [searchQuery, selectedCategory, sortBy])
 
   useEffect(() => {
@@ -101,69 +105,79 @@ function Projects() {
   const hasActiveFilters =
     searchQuery.trim() !== '' || selectedCategory !== 'Semua'
 
+  function handlePageChange(page: number) {
+    if (page === currentPage || page < 1 || page > totalPages) {
+      return
+    }
+
+    setSlideDirection(page > currentPage ? 'left' : 'right')
+    setCurrentPage(page)
+  }
+
   function resetFilters() {
     setSearchQuery('')
     setSelectedCategory('Semua')
     setSortBy('newest')
     setCurrentPage(1)
+    setSlideDirection('right')
   }
 
   return (
-    <section className="mx-auto min-h-screen max-w-7xl px-6 py-12 lg:px-8">      
-        {/* Header */}
-        <header>
+    <section className="mx-auto min-h-screen max-w-7xl px-6 py-12 lg:px-8">
+      {/* Header */}
+      <header>
         <Link
-            to="/#projects"
-            className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-primary"
+          to="/#projects"
+          className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-primary"
         >
-            <ArrowLeft size={18} />
-            Kembali ke Beranda
+          <ArrowLeft size={18} />
+          Kembali ke Beranda
         </Link>
 
         <div className="mt-10 flex flex-col justify-between gap-8 md:flex-row md:items-center">
-            {/* Judul dan deskripsi */}
-            <div className="min-w-0 flex-1">
+          {/* Judul dan deskripsi */}
+          <div className="min-w-0 flex-1">
             <div className="mb-4 flex items-center gap-2">
-                <span className="h-0.5 w-8 rounded-full bg-primary" />
+              <span className="h-0.5 w-8 rounded-full bg-primary" />
 
-                <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
                 Portofolio
-                </span>
+              </span>
             </div>
 
             <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-5xl">
-                Semua Proyek
-                <span className="text-primary">.</span>
+              Semua Proyek
+              <span className="text-primary">.</span>
             </h1>
 
             <p className="mt-4 max-w-2xl text-base leading-8 text-text-secondary md:text-lg">
-                Jelajahi berbagai proyek yang saya kerjakan, mulai dari desain
-                UI/UX, pengembangan web, hingga desain grafis.
+              Jelajahi berbagai proyek yang saya kerjakan, mulai dari desain
+              UI/UX, pengembangan web, hingga desain grafis.
             </p>
-            </div>
+          </div>
 
-            {/* Statistik */}
-            <div className="grid shrink-0 grid-cols-2 gap-3 md:w-64">
+          {/* Statistik */}
+          <div className="grid shrink-0 grid-cols-2 gap-3 md:w-64">
             <div className="rounded-xl border border-white/10 bg-surface px-4 py-4">
-                <p className="text-2xl font-bold text-text-primary">
+              <p className="text-2xl font-bold text-text-primary">
                 {publishedProjects.length}
-                </p>
-                <p className="mt-1 text-xs text-text-secondary">
+              </p>
+              <p className="mt-1 text-xs text-text-secondary">
                 Total proyek
-                </p>
+              </p>
             </div>
 
             <div className="rounded-xl border border-white/10 bg-surface px-4 py-4">
-                <p className="text-2xl font-bold text-text-primary">
+              <p className="text-2xl font-bold text-text-primary">
                 {categories.length - 1}
-                </p>
-                <p className="mt-1 text-xs text-text-secondary">
+              </p>
+              <p className="mt-1 text-xs text-text-secondary">
                 Kategori
-                </p>
+              </p>
             </div>
-            </div>
+          </div>
         </div>
-        </header>
+      </header>
 
       {/* Pencarian dan filter */}
       <div className="mt-12 rounded-2xl border border-white/10 bg-surface p-4 md:p-6">
@@ -248,10 +262,7 @@ function Projects() {
 
           {/* Jumlah hasil dan pengurutan */}
           <div className="flex flex-col justify-between gap-3 border-t border-white/10 pt-4 sm:flex-row sm:items-center">
-            <p
-              aria-live="polite"
-              className="text-sm text-text-secondary"
-            >
+            <p aria-live="polite" className="text-sm text-text-secondary">
               Menampilkan{' '}
               <span className="font-semibold text-text-primary">
                 {filteredProjects.length}
@@ -305,37 +316,42 @@ function Projects() {
       </div>
 
       {/* Grid proyek */}
-      {paginatedProjects.length > 0 ? (
-        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {paginatedProjects.map((project) => (
-            <ProjectCard key={project.slug} {...project} />
-          ))}
-        </div>
-      ) : (
-        <div className="mt-8 rounded-2xl border border-dashed border-white/10 px-6 py-16 text-center">
-          <div className="mx-auto flex size-14 items-center justify-center rounded-2xl border border-white/10 bg-surface">
-            <Search size={24} className="text-text-secondary" />
+      <div
+        key={currentPage}
+        className={`project-page-slide-in-${slideDirection} mt-8`}
+      >
+        {paginatedProjects.length > 0 ? (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {paginatedProjects.map((project) => (
+              <ProjectCard key={project.slug} {...project} />
+            ))}
           </div>
+        ) : (
+          <div className="rounded-2xl border border-dashed border-white/10 px-6 py-16 text-center">
+            <div className="mx-auto flex size-14 items-center justify-center rounded-2xl border border-white/10 bg-surface">
+              <Search size={24} className="text-text-secondary" />
+            </div>
 
-          <h2 className="mt-5 text-xl font-semibold text-text-primary">
-            Proyek tidak ditemukan
-          </h2>
+            <h2 className="mt-5 text-xl font-semibold text-text-primary">
+              Proyek tidak ditemukan
+            </h2>
 
-          <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-text-secondary">
-            Tidak ada proyek yang cocok dengan pencarian atau kategori
-            yang dipilih. Coba kata kunci lain atau reset filter.
-          </p>
+            <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-text-secondary">
+              Tidak ada proyek yang cocok dengan pencarian atau kategori
+              yang dipilih. Coba kata kunci lain atau reset filter.
+            </p>
 
-          <button
-            type="button"
-            onClick={resetFilters}
-            className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-lg bg-linear-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-          >
-            <X size={16} />
-            Reset Filter
-          </button>
-        </div>
-      )}
+            <button
+              type="button"
+              onClick={resetFilters}
+              className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-lg bg-linear-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            >
+              <X size={16} />
+              Reset Filter
+            </button>
+          </div>
+        )}
+      </div>
 
       {/* Pagination */}
       <Pagination
@@ -347,7 +363,7 @@ function Projects() {
           filteredProjects.length,
         )}
         totalItems={filteredProjects.length}
-        onPageChange={setCurrentPage}
+        onPageChange={handlePageChange}
       />
     </section>
   )

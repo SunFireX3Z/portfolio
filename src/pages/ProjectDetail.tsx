@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+
 import { Link, useParams } from 'react-router'
 import {
   ArrowLeft,
@@ -7,6 +8,7 @@ import {
   Clock3,
   UserRound,
 } from 'lucide-react'
+
 import { publishedProjects } from '../data/projects'
 import Badge from '../components/ui/Badge'
 
@@ -26,7 +28,9 @@ import ReactIcon from '@/assets/icons/technologies/reactjs.svg?url'
 import TailwindIcon from '@/assets/icons/technologies/tailwind.svg?url'
 import TypeScriptIcon from '@/assets/icons/technologies/typescript.svg?url'
 import VSCodeIcon from '@/assets/icons/technologies/vscode.svg?url'
-import MySQLIcon from '@/assets/icons/technologies/mysql.svg'
+import MySQLIcon from '@/assets/icons/technologies/mysql.svg?url'
+import BootstrapIcon from '@/assets/icons/technologies/bootstrap.svg?url'
+import PixellabIcon from '@/assets/icons/technologies/pixellab.svg?url'
 
 type MetadataCardProps = {
   icon: ReactNode
@@ -51,7 +55,9 @@ const technologyLogos: Record<string, string> = {
   'Tailwind CSS': TailwindIcon,
   TypeScript: TypeScriptIcon,
   'Visual Studio Code': VSCodeIcon,
-  'MySQL': MySQLIcon
+  MySQL: MySQLIcon,
+  Bootstrap: BootstrapIcon,
+  Pixellab: PixellabIcon
 }
 
 function formatProjectDate(date: string): string {
@@ -101,6 +107,32 @@ function MetadataCard({ icon, label, value }: MetadataCardProps) {
   )
 }
 
+function ProjectNavigation() {
+  return (
+    <nav aria-label="Navigasi halaman" className="flex flex-wrap items-center gap-4">
+      <Link
+        to="/projects"
+        className="inline-flex items-center gap-2 text-sm font-medium text-text-secondary transition-colors hover:text-orange-400"
+      >
+        <ArrowLeft size={18} />
+        Kembali ke Katalog Proyek
+      </Link>
+
+      <span
+        aria-hidden="true"
+        className="h-5 w-px bg-white/15"
+      />
+
+      <Link
+        to="/"
+        className="text-sm text-text-secondary transition-colors hover:text-text-primary"
+      >
+        Beranda
+      </Link>
+    </nav>
+  )
+}
+
 function ProjectDetail() {
   const { slug } = useParams()
   const project = publishedProjects.find((item) => item.slug === slug)
@@ -116,26 +148,16 @@ function ProjectDetail() {
           Proyek yang kamu cari tidak tersedia.
         </p>
 
-        <Link
-          to="/#projects"
-          className="mt-6 inline-flex items-center gap-2 text-text-secondary transition-colors hover:text-text-primary"
-        >
-          <ArrowLeft size={18} />
-          Kembali ke Beranda
-        </Link>
+        <div className="mt-6">
+          <ProjectNavigation />
+        </div>
       </section>
     )
   }
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-      <Link
-        to="/#projects"
-        className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-orange-400"
-      >
-        <ArrowLeft size={18} />
-        Kembali ke Beranda
-      </Link>
+      <ProjectNavigation />
 
       {/* Header proyek */}
       <header className="mt-10">

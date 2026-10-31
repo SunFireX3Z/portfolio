@@ -21,6 +21,8 @@ demoLink: null
 import dashboardImage from './images/Dashboard Page.png'
 import UIKitImage from './images/UI Kit.png'
 import ArticlesTableImage from './images/Articles Page.png'
+import UserTableImage from './images/User Management Page.png'
+import UserDetailImage from './images/User Detail Page.png'
 
 ## Tentang Proyek
 
@@ -116,3 +118,60 @@ Halaman ini berfokus pada penyelesaian masalah kerumitan pengelolaan file fisik 
   alt="Tampilan tabel artikel SunBlog"
   caption="Tabel artikel untuk mempermudah pengelolaan konten"
 />
+
+### Bedah Halaman Tabel User (User Management)
+
+Halaman Tabel User dirancang sebagai pusat pengelolaan akun yang terdaftar di platform SunBlog. Admin dapat melihat informasi pengguna dalam satu tabel sehingga proses pemantauan akun dan pengelolaan akses menjadi lebih terstruktur.
+
+Beberapa elemen utama yang diterapkan pada halaman ini meliputi:
+
+- **Informasi Pengguna**: Setiap baris menampilkan nama pengguna, foto profil, username, alamat email, role, status akun, tanggal bergabung, dan waktu terakhir aktif. Informasi tersebut membantu Admin mengenali identitas serta kondisi setiap akun.
+- **Pengelolaan Role**: Informasi role ditampilkan menggunakan label visual untuk membedakan hak akses pengguna, seperti Admin, Author, dan Member.
+- **Indikator Status Akun**: Status Active, Suspended, Inactive, dan Banned dibedakan menggunakan warna agar Admin dapat mengenali kondisi akun dengan cepat.
+- **Pencarian dan Filter**: Tersedia kolom pencarian berdasarkan nama, email, atau role, serta dropdown filter berdasarkan status dan role pengguna. Fitur ini mempermudah pencarian akun tertentu di antara banyaknya data.
+- **Aksi Pengelolaan Akun**: Setiap baris menyediakan tombol untuk melihat detail, mengedit informasi, dan menghapus akun.
+- **Pagination**: Daftar pengguna dibagi menjadi beberapa halaman dengan informasi jumlah entri yang ditampilkan. Hal ini membantu menjaga tabel tetap terorganisasi ketika jumlah akun bertambah.
+
+Rancangan ini mengutamakan keterbacaan informasi dan kemudahan akses terhadap tindakan pengelolaan akun, sehingga Admin tidak perlu membuka setiap profil hanya untuk memeriksa informasi dasarnya.
+
+<ProjectImage
+  src={UserTableImage}
+  alt="Tampilan halaman tabel User Management SunBlog"
+  caption="Halaman User Management untuk memantau dan mengelola akun pengguna, role, serta status akses."
+/>
+
+### Bedah Halaman Detail User (User Detail)
+
+Halaman Detail User dirancang untuk memberikan informasi yang lebih lengkap mengenai satu akun. Berbeda dengan halaman tabel pengguna yang menampilkan data secara ringkas, halaman ini menggabungkan informasi profil, statistik aktivitas, dan daftar artikel yang berkaitan dengan pengguna tersebut.
+
+Antarmuka dibagi menjadi beberapa bagian utama:
+
+- **Profile Summary**: Menampilkan foto profil, nama, username, deskripsi singkat, role, dan status akun. Informasi tambahan seperti email, tanggal bergabung, serta waktu terakhir aktif juga disediakan untuk membantu Admin memahami identitas dan kondisi pengguna.
+- **Statistik Aktivitas**: Empat kartu statistik menampilkan Total Articles, Total Views, Total Likes, dan Total Comments. Angka-angka tersebut memberikan gambaran mengenai kontribusi serta performa konten yang berkaitan dengan pengguna.
+- **Author Articles**: Menampilkan daftar artikel yang dibuat oleh pengguna dalam bentuk tabel. Informasi yang disajikan meliputi thumbnail, judul, kategori, content type, status publikasi, jumlah views, likes, comments, dan tanggal publikasi.
+- **Pencarian dan Filter Artikel**: Admin dapat mencari artikel berdasarkan informasi yang tersedia serta menyaring daftar berdasarkan status publikasinya.
+- **Aksi Pengelolaan Artikel**: Setiap baris menyediakan tombol untuk melihat, mengedit, dan menghapus artikel yang bersangkutan.
+
+Pembagian informasi ini memungkinkan Admin memeriksa profil sekaligus meninjau aktivitas publikasi pengguna tanpa harus berpindah ke beberapa halaman berbeda.
+
+<ProjectImage
+  src={UserDetailImage}
+  alt="Tampilan halaman Detail User SunBlog"
+  caption="Halaman Detail User yang menggabungkan ringkasan profil, statistik aktivitas, dan daftar artikel pengguna."
+/>
+
+## Evaluasi dan Refleksi Desain
+
+Dalam proses perancangan SunBlog Admin Panel, saya langsung memulai desain pada tahap High-Fidelity tanpa membuat User Flow, Low-Fidelity Wireframe, maupun dokumentasi alur pengguna secara terpisah.
+
+Keputusan tersebut diambil karena saya sudah memiliki gambaran mengenai struktur halaman dan kebutuhan antarmuka yang ingin dirancang. Selain itu, pemahaman mengenai pengembangan web dan penyusunan komponen antarmuka membantu saya menerjemahkan ide secara langsung ke dalam desain visual.
+
+Meskipun pendekatan ini membuat proses perancangan terasa lebih cepat, terdapat beberapa hal yang menjadi pembelajaran untuk proyek berikutnya:
+
+- **Kurangnya Perencanaan Alur Pengguna:** Tanpa User Flow, hubungan antarhalaman dan urutan tindakan pengguna tidak terdokumentasi sejak awal. Akibatnya, beberapa keputusan mengenai navigasi dan alur interaksi baru dipertimbangkan ketika desain antarmuka sudah berjalan.
+- **Tidak Adanya Wireframe Awal:** Langsung membuat High-Fidelity membuat saya melewatkan kesempatan untuk mengevaluasi struktur layout, hierarki informasi, dan penempatan komponen sebelum masuk ke tahap visual yang lebih detail.
+- **Potensi Perubahan Desain:** Ketika terdapat kebutuhan atau elemen yang perlu disesuaikan, perubahan dapat berdampak pada komponen dan tampilan yang sudah dirancang. Hal ini berpotensi menambah pekerjaan dibandingkan jika struktur awal telah direncanakan terlebih dahulu.
+
+Dari proyek ini, saya menyadari bahwa pemahaman terhadap kebutuhan antarmuka dan kemampuan menyusun komponen saja belum cukup untuk menghasilkan proses desain yang terstruktur. Tahap perencanaan tetap memiliki peran penting dalam memastikan setiap halaman dan interaksi saling terhubung dengan baik.
+
+Untuk proyek selanjutnya, saya ingin menerapkan proses yang lebih sistematis dengan menyusun User Flow dan Low-Fidelity Wireframe terlebih dahulu sebelum memasuki tahap High-Fidelity. Dengan begitu, struktur dan alur penggunaan dapat ditinjau lebih awal sehingga proses desain visual dapat berjalan dengan lebih terarah.

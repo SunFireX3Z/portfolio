@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
 import {
   ArrowLeft,
@@ -37,6 +37,7 @@ function FeaturedProjectCard({
 }: FeaturedProjectCardProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState<SlideDirection>('next')
+  const AUTO_SLIDE_INTERVAL = 10_000
 
   if (projects.length === 0) {
     return null
@@ -74,6 +75,21 @@ function FeaturedProjectCard({
       index > currentIndex ? 'next' : 'previous',
     )
   }
+
+  useEffect(() => {
+    if (projects.length <= 1) return
+
+    const timer = window.setTimeout(() => {
+      setDirection('next')
+      setCurrentIndex((previousIndex) =>
+        previousIndex === projects.length - 1
+          ? 0
+          : previousIndex + 1,
+      )
+    }, AUTO_SLIDE_INTERVAL)
+
+    return () => window.clearTimeout(timer)
+  }, [currentIndex, projects.length])
 
   return (
     <Card
@@ -168,6 +184,19 @@ function FeaturedProjectCard({
                       />
                     ))}
                   </div>
+                </div>
+
+                {/* Progress bar */}
+                <div
+                  key={project.slug}
+                  className="absolute inset-x-0 bottom-0 z-20 h-1 overflow-hidden bg-white/20"
+                  role="progressbar"
+                  aria-label="Durasi proyek ditampilkan"
+                  aria-valuemin={0}
+                  aria-valuemax={10}
+                  aria-valuenow={10}
+                >
+                  <div className="project-progress-bar h-full bg-primary" />
                 </div>
               </>
             )}
