@@ -62,7 +62,7 @@ export default function Ticker({
               className="flex shrink-0 items-center gap-4 px-6 md:gap-5 md:px-10"
             >
               <span className="size-2 shrink-0 rounded-full bg-orange-500 md:size-2.5" />
-              <span className="whitespace-nowrap text-base font-semibold text-slate-300 md:text-lg">
+              <span className="font-general whitespace-nowrap text-base font-semibold text-slate-300 md:text-lg">
                 {item}
               </span>
             </div>
@@ -81,7 +81,7 @@ export default function Ticker({
                 className="flex shrink-0 items-center gap-4 px-6 md:gap-5 md:px-10"
               >
                 <span className="size-2 shrink-0 rounded-full bg-orange-500 md:size-2.5" />
-                <span className="whitespace-nowrap text-base font-semibold text-slate-300 md:text-lg">
+                <span className="font-general whitespace-nowrap text-base font-semibold text-slate-300 md:text-lg">
                   {item}
                 </span>
               </div>

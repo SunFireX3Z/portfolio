@@ -36,7 +36,7 @@ function Badge({
     <span
       {...props}
       className={[
-        'inline-flex w-fit items-center rounded-md font-medium',
+        'inline-flex w-fit items-center rounded-md font-general font-medium',
         variants[variant],
         className,
       ].join(' ')}

@@ -39,24 +39,24 @@ function TimelineItemCard({
 
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded-full border border-orange-400/20 bg-orange-400/10 px-2.5 py-1 text-xs font-medium text-orange-300">
+              <span className="rounded-full border border-orange-400/20 bg-orange-400/10 px-2.5 py-1 font-general text-xs font-medium text-orange-300">
                 {category}
               </span>
 
-              <span className="text-xs text-text-secondary">
+              <span className="font-general text-xs text-text-secondary">
                 {item.period}
               </span>
             </div>
 
-            <h3 className="mt-3 text-lg font-semibold text-text-primary sm:text-xl">
+            <h3 className="mt-3 font-clash text-lg font-semibold text-text-primary sm:text-xl">
               {item.title}
             </h3>
 
-            <p className="mt-1 text-sm font-medium text-text-secondary">
+            <p className="mt-1 font-general text-sm font-medium text-text-secondary">
               {item.institution}
             </p>
 
-            <p className="mt-3 text-sm leading-6 text-text-secondary">
+            <p className="mt-3 font-general text-sm leading-6 text-text-secondary">
               {item.description}
             </p>
           </div>
@@ -68,7 +68,7 @@ function TimelineItemCard({
             aria-expanded={expanded}
             aria-controls={contentId}
             onClick={() => setExpanded((previous) => !previous)}
-            className="flex w-full items-center justify-between gap-3 text-left text-sm font-medium text-orange-300 transition-colors hover:text-orange-200"
+            className="flex w-full items-center justify-between gap-3 text-left font-general text-sm font-medium text-orange-300 transition-colors hover:text-orange-200"
           >
             <span>
               {expanded ? 'Sembunyikan detail' : 'Lihat detail'}
@@ -115,7 +115,7 @@ function TimelineItemCard({
                         ? `${index * 60}ms`
                         : '0ms',
                     }}
-                    className={`flex items-start gap-3 text-sm leading-6 text-text-secondary transition-[opacity,transform] duration-200 ease-out motion-reduce:transition-none ${
+                    className={`flex items-start gap-3 font-general text-sm leading-6 text-text-secondary transition-[opacity,transform] duration-200 ease-out motion-reduce:transition-none ${
                       expanded
                         ? 'translate-y-0 opacity-100'
                         : 'translate-y-2 opacity-0'
@@ -149,11 +149,11 @@ export default function ExperienceEducationSection() {
         <div className="mb-12 max-w-2xl">
           <SectionBadge>Perjalanan Saya</SectionBadge>
 
-          <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="mt-5 font-clash text-3xl font-bold tracking-tight sm:text-4xl">
             Pendidikan &amp; Pengalaman
           </h2>
 
-          <p className="mt-4 text-base leading-7 text-text-secondary">
+          <p className="mt-4 font-general text-base leading-7 text-text-secondary">
             Perjalanan saya dalam mempelajari pengembangan perangkat lunak,
             membangun aplikasi web, dan mengembangkan keterampilan desain.
           </p>
@@ -161,7 +161,7 @@ export default function ExperienceEducationSection() {
 
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h3 className="mb-7 text-xl font-semibold text-text-primary">
+            <h3 className="mb-7 font-clash text-xl font-semibold text-text-primary">
               Pendidikan
             </h3>
 
@@ -177,7 +177,7 @@ export default function ExperienceEducationSection() {
           </div>
 
           <div>
-            <h3 className="mb-7 text-xl font-semibold text-text-primary">
+            <h3 className="mb-7 font-clash text-xl font-semibold text-text-primary">
               Pengalaman
             </h3>
 

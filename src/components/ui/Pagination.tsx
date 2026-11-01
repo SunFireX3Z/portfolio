@@ -24,7 +24,7 @@ function Pagination({
       aria-label="Navigasi halaman proyek"
       className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row"
     >
-      <p className="text-sm text-text-secondary">
+      <p className="font-general text-sm text-text-secondary">
         Menampilkan{' '}
         <span className="font-medium text-text-primary">
           {firstItem}–{lastItem}
@@ -56,7 +56,7 @@ function Pagination({
               aria-label={`Halaman ${page}`}
               aria-current={currentPage === page ? 'page' : undefined}
               className={[
-                'flex size-10 items-center justify-center rounded-lg border text-sm font-medium transition-colors',
+                'flex size-10 items-center justify-center rounded-lg border font-general text-sm font-medium transition-colors',
                 currentPage === page
                   ? 'border-primary bg-linear-to-r from-primary to-accent text-white'
                   : 'border-white/10 text-text-secondary hover:border-primary hover:text-text-primary',

@@ -32,7 +32,7 @@ type AnchorButtonProps = SharedProps &
 type ButtonProps = NativeButtonProps | AnchorButtonProps
 
 const baseStyles =
-  'inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50'
+  'inline-flex items-center justify-center gap-2 rounded-lg font-general font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50'
 
 const variantStyles = {
   primary:

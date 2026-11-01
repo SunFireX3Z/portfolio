@@ -15,7 +15,7 @@ function SectionBadge({
       className={[
         'inline-flex items-center gap-2 rounded-full',
         'border border-orange-500/25 bg-orange-500/10',
-        'px-4 py-2 text-sm font-semibold text-orange-300',
+        'px-4 py-2 font-general text-sm font-semibold text-orange-300',
         className,
       ].join(' ')}
     >

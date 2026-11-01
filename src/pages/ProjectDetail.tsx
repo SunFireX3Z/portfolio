@@ -98,8 +98,8 @@ function MetadataCard({ icon, label, value }: MetadataCardProps) {
         <div className="shrink-0 text-orange-400">{icon}</div>
 
         <div className="min-w-0">
-          <p className="text-sm text-text-secondary">{label}</p>
-          <p className="mt-1 wrap-break-words font-medium text-text-primary">
+          <p className="font-general text-sm text-text-secondary">{label}</p>
+          <p className="mt-1 font-general font-medium text-text-primary">
             {value}
           </p>
         </div>
@@ -113,7 +113,7 @@ function ProjectNavigation() {
     <nav aria-label="Navigasi halaman" className="flex flex-wrap items-center gap-4">
       <Link
         to="/projects"
-        className="inline-flex items-center gap-2 text-sm font-medium text-text-secondary transition-colors hover:text-orange-400"
+        className="inline-flex items-center gap-2 font-general text-sm font-medium text-text-secondary transition-colors hover:text-orange-400"
       >
         <ArrowLeft size={18} />
         Kembali ke Katalog Proyek
@@ -126,7 +126,7 @@ function ProjectNavigation() {
 
       <Link
         to="/"
-        className="text-sm text-text-secondary transition-colors hover:text-text-primary"
+        className="font-general text-sm text-text-secondary transition-colors hover:text-text-primary"
       >
         Beranda
       </Link>
@@ -149,20 +149,20 @@ function ProjectDetail() {
       {/* Header proyek */}
       <header className="mt-10">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="rounded-full border border-orange-400/30 bg-orange-400/10 px-3 py-1 text-sm text-orange-300">
+          <span className="rounded-full border border-orange-400/30 bg-orange-400/10 px-3 py-1 font-general text-sm text-orange-300">
             {project.category}
           </span>
 
-          <span className="text-sm text-text-secondary">
+          <span className="font-general text-sm text-text-secondary">
             {project.projectType}
           </span>
         </div>
 
-        <h1 className="mt-5 text-3xl font-bold leading-tight tracking-tight text-text-primary md:text-5xl">
+        <h1 className="mt-5 font-clash text-3xl font-bold leading-tight tracking-tight text-text-primary md:text-5xl">
           {project.title}
         </h1>
 
-        <p className="mt-5 text-base leading-8 text-text-secondary md:text-lg">
+        <p className="mt-5 font-general text-base leading-8 text-text-secondary md:text-lg">
           {project.description}
         </p>
       </header>
@@ -184,7 +184,7 @@ function ProjectDetail() {
         project.status ||
         project.duration) && (
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-text-primary">
+          <h2 className="font-clash text-xl font-semibold text-text-primary">
             Ringkasan Proyek
           </h2>
 
@@ -227,7 +227,7 @@ function ProjectDetail() {
       {/* Teknologi */}
       {project.technologies.length > 0 && (
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-text-primary">
+          <h2 className="font-clash text-xl font-semibold text-text-primary">
             Teknologi yang Digunakan
           </h2>
 
@@ -262,11 +262,11 @@ function ProjectDetail() {
       {/* Isi studi kasus dari MDX */}
       <section className="mt-14 border-t border-white/10 pt-10">
         <div className="mb-8">
-          <p className="text-sm font-medium uppercase tracking-widest text-orange-400">
+          <p className="font-general text-sm font-medium uppercase tracking-widest text-orange-400">
             Studi Kasus
           </p>
 
-          <h2 className="mt-2 text-2xl font-bold text-text-primary md:text-3xl">
+          <h2 className="mt-2 font-clash text-2xl font-bold text-text-primary md:text-3xl">
             Proses dan Dokumentasi Proyek
           </h2>
         </div>
@@ -274,10 +274,10 @@ function ProjectDetail() {
         <article
           className="
             w-full min-w-0 space-y-5
-            text-base leading-7 text-text-secondary
-            [&>h1]:pt-5 [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:leading-tight [&>h1]:text-text-primary
-            [&>h2]:border-b [&>h2]:border-white/10 [&>h2]:pb-3 [&>h2]:pt-8 [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:leading-snug [&>h2]:text-text-primary
-            [&>h3]:pt-4 [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:text-text-primary
+            font-general text-base leading-7 text-text-secondary
+            [&>h1]:pt-5 [&>h1]:font-clash [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:leading-tight [&>h1]:text-text-primary
+            [&>h2]:border-b [&>h2]:border-white/10 [&>h2]:pb-3 [&>h2]:pt-8 [&>h2]:font-clash [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:leading-snug [&>h2]:text-text-primary
+            [&>h3]:pt-4 [&>h3]:font-clash [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:text-text-primary
             [&_p]:leading-7
             [&_a]:text-orange-400 [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-orange-300
             [&_strong]:font-semibold [&_strong]:text-text-primary
@@ -291,7 +291,7 @@ function ProjectDetail() {
             [&_code]:rounded [&_code]:bg-white/5 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-orange-300
             [&_pre_code]:bg-transparent [&_pre_code]:p-0
             [&_table]:w-full [&_table]:border-collapse
-            [&_th]:border-b [&_th]:border-white/10 [&_th]:p-3 [&_th]:text-left [&_th]:text-text-primary
+            [&_th]:border-b [&_th]:border-white/10 [&_th]:p-3 [&_th]:text-left [&_th]:font-general [&_th]:font-semibold [&_th]:text-text-primary
             [&_td]:border-b [&_td]:border-white/10 [&_td]:p-3
           "
         >
@@ -306,7 +306,7 @@ function ProjectDetail() {
             href={project.demoLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-lg bg-linear-to-r from-orange-500 to-amber-400 px-5 py-3 font-medium text-black transition-opacity hover:opacity-90"
+            className="inline-flex items-center justify-center rounded-lg bg-linear-to-r from-orange-500 to-amber-400 px-5 py-3 font-general text-sm font-semibold text-black transition-opacity hover:opacity-90"
           >
             Lihat Demo Langsung
           </a>

@@ -83,14 +83,14 @@ function Navbar({
           />
 
           <div className="flex flex-col">
-            <span className="text-lg font-extrabold tracking-tight">
+            <span className="font-clash text-lg font-bold tracking-tight">
               <span className="bg-linear-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                 SunFire
               </span>
               <span className="text-text-primary">X3Z</span>
             </span>
 
-            <span className="text-xs font-medium tracking-wide text-text-secondary">
+            <span className="font-general text-xs font-medium tracking-wide text-text-secondary">
               Randy Saputra
             </span>
           </div>
@@ -108,7 +108,7 @@ function Navbar({
                 aria-current={isActive ? 'location' : undefined}
                 className={[
                   'group relative flex min-h-11 items-center px-3 py-2',
-                  'text-base font-medium transition-colors duration-200',
+                  'font-general text-base font-medium transition-colors duration-200',
                   isActive
                     ? 'text-primary'
                     : 'text-text-secondary hover:text-text-primary',
@@ -191,7 +191,7 @@ function Navbar({
                   }}
                   className={[
                     'flex min-h-11 items-center justify-between rounded-xl px-4 py-3',
-                    'text-sm font-medium transition-[color,background-color,opacity,transform] duration-200',
+                    'font-general text-sm font-medium transition-[color,background-color,opacity,transform] duration-200',
                     isActive
                       ? 'bg-orange-400/10 text-primary'
                       : 'text-text-secondary hover:bg-white/5 hover:text-text-primary',

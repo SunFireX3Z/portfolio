@@ -128,7 +128,7 @@ function Projects() {
       <header>
         <Link
           to="/#projects"
-          className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-primary"
+          className="inline-flex items-center gap-2 font-general text-sm text-text-secondary transition-colors hover:text-primary"
         >
           <ArrowLeft size={18} />
           Kembali ke Beranda
@@ -140,17 +140,17 @@ function Projects() {
             <div className="mb-4 flex items-center gap-2">
               <span className="h-0.5 w-8 rounded-full bg-primary" />
 
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+              <span className="font-general text-sm font-semibold uppercase tracking-[0.2em] text-primary">
                 Portofolio
               </span>
             </div>
 
-            <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-5xl">
+            <h1 className="font-clash text-3xl font-bold tracking-tight text-text-primary md:text-5xl">
               Semua Proyek
               <span className="text-primary">.</span>
             </h1>
 
-            <p className="mt-4 max-w-2xl text-base leading-8 text-text-secondary md:text-lg">
+            <p className="mt-4 max-w-2xl font-general text-base leading-8 text-text-secondary md:text-lg">
               Jelajahi berbagai proyek yang saya kerjakan, mulai dari desain
               UI/UX, pengembangan web, hingga desain grafis.
             </p>
@@ -159,19 +159,19 @@ function Projects() {
           {/* Statistik */}
           <div className="grid shrink-0 grid-cols-2 gap-3 md:w-64">
             <div className="rounded-xl border border-white/10 bg-surface px-4 py-4">
-              <p className="text-2xl font-bold text-text-primary">
+              <p className="font-clash text-2xl font-bold text-text-primary">
                 {publishedProjects.length}
               </p>
-              <p className="mt-1 text-xs text-text-secondary">
+              <p className="mt-1 font-general text-xs text-text-secondary">
                 Total proyek
               </p>
             </div>
 
             <div className="rounded-xl border border-white/10 bg-surface px-4 py-4">
-              <p className="text-2xl font-bold text-text-primary">
+              <p className="font-clash text-2xl font-bold text-text-primary">
                 {categories.length - 1}
               </p>
-              <p className="mt-1 text-xs text-text-secondary">
+              <p className="mt-1 font-general text-xs text-text-secondary">
                 Kategori
               </p>
             </div>
@@ -186,7 +186,7 @@ function Projects() {
           <div>
             <label
               htmlFor="project-search"
-              className="mb-2 block text-sm font-medium text-text-primary"
+              className="mb-2 block font-general text-sm font-medium text-text-primary"
             >
               Cari proyek
             </label>
@@ -204,7 +204,7 @@ function Projects() {
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
                 placeholder="Cari judul, teknologi, atau kategori..."
-                className="min-h-12 w-full rounded-xl border border-white/10 bg-background py-3 pl-11 pr-11 text-sm text-text-primary outline-none transition-colors placeholder:text-text-secondary/70 focus:border-primary"
+                className="font-general min-h-12 w-full rounded-xl border border-white/10 bg-background py-3 pl-11 pr-11 text-sm text-text-primary outline-none transition-colors placeholder:text-text-secondary/70 focus:border-primary"
               />
 
               {searchQuery && (
@@ -229,7 +229,7 @@ function Projects() {
                 aria-hidden="true"
               />
 
-              <span className="text-sm font-medium text-text-primary">
+              <span className="font-general text-sm font-medium text-text-primary">
                 Kategori proyek
               </span>
             </div>
@@ -246,7 +246,7 @@ function Projects() {
                     aria-pressed={isActive}
                     onClick={() => setSelectedCategory(category)}
                     className={[
-                      'rounded-lg border px-4 py-2.5 text-sm font-medium transition-colors',
+                      'rounded-lg border px-4 py-2.5 font-general text-sm font-medium transition-colors',
                       isActive
                         ? 'border-transparent bg-linear-to-r from-primary to-accent text-white'
                         : 'border-white/10 bg-background text-text-secondary hover:border-white/20 hover:text-text-primary',
@@ -262,9 +262,9 @@ function Projects() {
 
           {/* Jumlah hasil dan pengurutan */}
           <div className="flex flex-col justify-between gap-3 border-t border-white/10 pt-4 sm:flex-row sm:items-center">
-            <p aria-live="polite" className="text-sm text-text-secondary">
+            <p aria-live="polite" className="font-general text-sm text-text-secondary">
               Menampilkan{' '}
-              <span className="font-semibold text-text-primary">
+              <span className="font-general font-semibold text-text-primary">
                 {filteredProjects.length}
               </span>{' '}
               dari {publishedProjects.length} proyek
@@ -273,7 +273,7 @@ function Projects() {
             <div className="flex flex-wrap items-center gap-3">
               <label
                 htmlFor="project-sort"
-                className="flex items-center gap-2 text-sm text-text-secondary"
+                className="flex items-center gap-2 font-general text-sm text-text-secondary"
               >
                 <ArrowUpDown size={15} aria-hidden="true" />
                 Urutkan
@@ -286,7 +286,7 @@ function Projects() {
                   onChange={(event) =>
                     setSortBy(event.target.value as SortOption)
                   }
-                  className="min-h-10 appearance-none rounded-lg border border-white/10 bg-background py-2 pl-3 pr-10 text-sm text-text-primary outline-none transition-colors focus:border-primary"
+                  className="font-general min-h-10 appearance-none rounded-lg border border-white/10 bg-background py-2 pl-3 pr-10 text-sm text-text-primary outline-none transition-colors focus:border-primary"
                 >
                   <option value="newest">Terbaru</option>
                   <option value="title-asc">Judul A–Z</option>
@@ -304,7 +304,7 @@ function Projects() {
                 <button
                   type="button"
                   onClick={resetFilters}
-                  className="inline-flex min-h-10 items-center gap-1.5 rounded-lg px-2 text-sm font-medium text-primary transition-colors hover:text-orange-300"
+                  className="inline-flex min-h-10 items-center gap-1.5 rounded-lg px-2 font-general text-sm font-medium text-primary transition-colors hover:text-orange-300"
                 >
                   <X size={15} />
                   Reset
@@ -332,11 +332,11 @@ function Projects() {
               <Search size={24} className="text-text-secondary" />
             </div>
 
-            <h2 className="mt-5 text-xl font-semibold text-text-primary">
+            <h2 className="mt-5 font-clash text-xl font-semibold text-text-primary">
               Proyek tidak ditemukan
             </h2>
 
-            <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-text-secondary">
+            <p className="mx-auto mt-2 max-w-md font-general text-sm leading-6 text-text-secondary">
               Tidak ada proyek yang cocok dengan pencarian atau kategori
               yang dipilih. Coba kata kunci lain atau reset filter.
             </p>
@@ -344,7 +344,7 @@ function Projects() {
             <button
               type="button"
               onClick={resetFilters}
-              className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-lg bg-linear-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-lg bg-linear-to-r from-primary to-accent px-5 py-2.5 font-general text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
               <X size={16} />
               Reset Filter

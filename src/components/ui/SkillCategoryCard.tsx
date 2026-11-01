@@ -54,7 +54,7 @@ function SkillCategoryCard({
         </div>
 
         <span
-          className={`text-sm font-semibold tracking-widest ${accent.number}`}
+          className={`font-general text-sm font-semibold tracking-widest ${accent.number}`}
         >
           {category.number}
         </span>
@@ -69,17 +69,17 @@ function SkillCategoryCard({
           </div>
 
           <div className="min-w-0">
-            <h3 className="text-xl font-bold leading-snug text-white md:text-2xl">
+            <h3 className="font-clash text-xl font-bold leading-snug text-white md:text-2xl">
               {category.title}
             </h3>
 
-            <p className="mt-2 text-base leading-7 text-slate-400">
+            <p className="font-general mt-2 text-base leading-7 text-slate-400">
               {category.description}
             </p>
           </div>
         </div>
 
-        <div className="mb-4 mt-7 flex items-center gap-3 text-sm font-semibold uppercase tracking-wider text-orange-400">
+        <div className="mb-4 mt-7 flex items-center gap-3 font-general text-sm font-semibold uppercase tracking-wider text-orange-400">
           <span className="shrink-0">Kemampuan Utama</span>
           <span className="h-px flex-1 bg-linear-to-r from-orange-600/60 via-amber-800/40 to-transparent" />
         </div>
@@ -88,7 +88,7 @@ function SkillCategoryCard({
           {category.skills.map((skill) => (
             <li
               key={skill}
-              className={`inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium md:text-base ${accent.badge}`}
+              className={`inline-flex items-center gap-2 rounded-lg border px-3 py-2 font-general text-sm font-medium md:text-base ${accent.badge}`}
             >
               <Check
                 size={16}

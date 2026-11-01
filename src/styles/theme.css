@@ -1,4 +1,7 @@
 @theme {
+  --font-clash: 'Clash Display', sans-serif;
+  --font-general: 'General Sans', sans-serif;
+  
   --color-primary: #f97316;
   --color-secondary: #d97706;
   --color-accent: #ea580c;

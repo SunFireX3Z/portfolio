@@ -1,4 +1,3 @@
-
 import { useCallback, useEffect, useRef, useState } from 'react'
 import {
   ArrowLeft,
@@ -80,7 +79,7 @@ function AchievementCard({
 
       <div className="flex flex-1 flex-col gap-8">
         <div>
-          <h3 className="text-base font-semibold leading-snug text-text-primary md:text-lg">
+          <h3 className="font-clash text-base font-semibold leading-snug text-text-primary md:text-lg">
             {achievement.title}
           </h3>
 
@@ -97,23 +96,23 @@ function AchievementCard({
             </div>
 
             <div className="min-w-0">
-              <p className="text-sm font-medium text-text-primary">
+              <p className="font-general text-sm font-medium text-text-primary">
                 {achievement.organization}
               </p>
 
-              <p className="text-xs text-text-secondary">
+              <p className="font-general text-xs text-text-secondary">
                 {achievement.type}
               </p>
             </div>
           </div>
 
-          <p className="mt-4 text-sm leading-6 text-text-secondary">
+          <p className="mt-4 font-general text-sm leading-6 text-text-secondary">
             {achievement.description}
           </p>
         </div>
 
         <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-3">
-          <span className="text-xs text-text-secondary">
+          <span className="font-general text-xs text-text-secondary">
             {achievement.date}
           </span>
 
@@ -121,7 +120,7 @@ function AchievementCard({
             type="button"
             disabled={!hasImages}
             onClick={() => onView(achievement)}
-            className={`inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40 ${accent.link}`}
+            className={`inline-flex items-center gap-1.5 rounded-md px-2 py-1 font-general text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40 ${accent.link}`}
           >
             {certificate ? 'Lihat Sertifikat' : 'Lihat Penghargaan'}
             <ArrowUpRight size={13} aria-hidden="true" />
@@ -217,7 +216,7 @@ function AchievementModal({
         <header className="flex shrink-0 items-start justify-between gap-4 border-b border-white/10 p-5 sm:p-6">
           <div className="min-w-0">
             <span
-              className={`text-xs font-medium ${
+              className={`font-general text-xs font-medium ${
                 certificate ? 'text-orange-400' : 'text-red-400'
               }`}
             >
@@ -226,12 +225,12 @@ function AchievementModal({
 
             <h2
               id="achievement-modal-title"
-              className="mt-2 text-lg font-semibold text-text-primary sm:text-xl"
+              className="mt-2 font-clash text-lg font-semibold text-text-primary sm:text-xl"
             >
               {achievement.title}
             </h2>
 
-            <p className="mt-1 text-sm text-text-secondary">
+            <p className="mt-1 font-general text-sm text-text-secondary">
               {achievement.organization} · {achievement.date}
             </p>
           </div>
@@ -302,13 +301,13 @@ function AchievementModal({
                     ))}
                   </div>
 
-                  <p className="text-xs text-text-secondary">
+                  <p className="font-general text-xs text-text-secondary">
                     Gambar {currentImage + 1} dari {images.length}
                   </p>
                 </div>
               )}
 
-              <p className="mt-3 text-center text-xs text-text-secondary">
+              <p className="mt-3 font-general text-center text-xs text-text-secondary">
                 {current.alt}
               </p>
             </div>
@@ -316,7 +315,7 @@ function AchievementModal({
         </div>
 
         <footer className="shrink-0 border-t border-white/10 p-5 sm:p-6">
-          <p className="text-sm leading-6 text-text-secondary">
+          <p className="font-general text-sm leading-6 text-text-secondary">
             {achievement.description}
           </p>
         </footer>
@@ -339,16 +338,16 @@ function CertificatesSection() {
         <header className="space-y-3 text-center">
           <SectionBadge>Sertifikat &amp; Penghargaan</SectionBadge>
 
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+          <h2 className="font-clash text-3xl font-bold tracking-tight md:text-4xl">
             Sertifikat dan Penghargaan
           </h2>
 
-          <p className="mx-auto max-w-xl text-sm leading-6 text-text-secondary">
+          <p className="mx-auto max-w-xl font-general text-sm leading-6 text-text-secondary">
             Kumpulan hasil belajar dan pencapaian yang mendukung perjalanan
             saya di bidang desain dan teknologi.
           </p>
 
-          <div className="flex justify-center gap-4 pt-1 text-xs">
+          <div className="flex justify-center gap-4 pt-1 font-general text-xs">
             <span className="flex items-center gap-2 text-orange-400">
               <span className="size-2 rounded-full bg-orange-500" />
               Sertifikat

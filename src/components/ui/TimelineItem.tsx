@@ -34,13 +34,13 @@ function TimelineItem({
 
       <div className="min-w-0 flex-1 space-y-3 pb-2">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 font-general text-xs font-medium text-primary">
             <CalendarDays size={12} />
             {period}
           </span>
 
           {location && (
-            <span className="inline-flex items-center gap-1.5 text-xs text-text-secondary">
+            <span className="inline-flex items-center gap-1.5 font-general text-xs text-text-secondary">
               <MapPin size={12} />
               {location}
             </span>
@@ -48,15 +48,15 @@ function TimelineItem({
         </div>
 
         <div className="space-y-1">
-          <h3 className="text-base font-semibold text-text-primary">
+          <h3 className="font-clash text-base font-semibold text-text-primary">
             {title}
           </h3>
-          <p className="text-sm font-medium text-primary">
+          <p className="font-general text-sm font-medium text-primary">
             {organization}
           </p>
         </div>
 
-        <p className="text-sm leading-6 text-text-secondary">
+        <p className="font-general text-sm leading-6 text-text-secondary">
           {description}
         </p>
       </div>

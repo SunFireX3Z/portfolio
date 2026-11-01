@@ -60,19 +60,19 @@ function AboutSection() {
             <SectionBadge>Tentang Saya</SectionBadge>
           </div>
 
-          <h2 className="mb-5 text-4xl font-bold tracking-tight md:text-5xl">
+          <h2 className="mb-5 font-clash text-4xl font-bold tracking-tight md:text-5xl">
             Siapa Saya?
             <span className="text-orange-500">.</span>
           </h2>
 
-          <div className="space-y-3 text-base leading-7 text-text-secondary">
+          <div className="space-y-3 font-general text-base leading-7 text-text-secondary">
             <p>
               Hai, saya{' '}
-              <span className="font-semibold text-orange-500">
+              <span className="font-general font-semibold text-orange-500">
                 Randy Saputra
               </span>
               , dikenal juga sebagai{' '}
-              <span className="font-semibold text-orange-500">
+              <span className="font-general font-semibold text-orange-500">
                 SunFireX3Z
               </span>
               , seorang frontend developer, graphic designer, dan desainer antarmuka dari Jakarta, Indonesia.
@@ -91,7 +91,7 @@ function AboutSection() {
           </div>
 
           <div className="mt-6">
-            <p className="mb-3 font-semibold text-text-primary">
+            <p className="mb-3 font-general font-semibold text-text-primary">
               Temukan Saya
             </p>
 
@@ -123,15 +123,15 @@ function AboutSection() {
               </div>
 
               <Card variant="tilt" padding="md">
-                <span className="absolute right-4 top-3 text-2xl font-bold text-orange-500/70">
+                <span className="absolute right-4 top-3 font-clash text-2xl font-bold text-orange-500/70">
                   {number}
                 </span>
 
-                <h3 className="mb-2 pr-10 text-lg font-bold text-text-primary">
+                <h3 className="mb-2 pr-10 font-clash text-lg font-bold text-text-primary">
                   {title}
                 </h3>
 
-                <p className="text-sm leading-6 text-text-secondary">
+                <p className="font-general text-sm leading-6 text-text-secondary">
                   {description}
                 </p>
               </Card>

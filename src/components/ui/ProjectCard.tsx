@@ -63,7 +63,7 @@ function ProjectCard({
 
             <div
               aria-hidden="true"
-              className="flex items-center gap-1 text-sm font-medium tracking-tight text-primary"
+              className="flex items-center gap-1 font-general text-sm font-medium tracking-tight text-primary"
             >
               <span>/</span>
               <span>/</span>
@@ -82,7 +82,7 @@ function ProjectCard({
               />
             ) : (
               <div className="flex aspect-video w-full items-center justify-center bg-white/5">
-                <span className="text-sm text-text-secondary">
+                <span className="font-general text-sm text-text-secondary">
                   Gambar belum tersedia
                 </span>
               </div>
@@ -94,8 +94,8 @@ function ProjectCard({
               >
                 <span
                   className={[
-                    'absolute right-[-36px] top-[20px] w-[145px] rotate-45',
-                    'px-2 py-1.5 text-center text-[10px] font-bold uppercase tracking-wider',
+                    'absolute -right-36px top-20px w-145px rotate-45',
+                    'px-2 py-1.5 text-center font-general text-[10px] font-bold uppercase tracking-wider',
                     'whitespace-nowrap shadow-lg',
                     getStatusStyle(status),
                   ].join(' ')}
@@ -111,11 +111,11 @@ function ProjectCard({
       <div className="flex flex-1 flex-col">
         {/* Konten utama */}
         <div className="flex flex-col gap-2">
-          <h3 className="text-xl font-bold text-text-primary">
+          <h3 className="font-clash text-xl font-bold text-text-primary">
             {title}
           </h3>
 
-          <p className="line-clamp-3 text-sm leading-relaxed text-text-secondary">
+          <p className="font-general line-clamp-3 text-sm leading-relaxed text-text-secondary">
             {description}
           </p>
         </div>

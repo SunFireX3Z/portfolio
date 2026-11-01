@@ -19,11 +19,11 @@
           <div className="max-w-2xl space-y-3">
             <SectionBadge>Portofolio</SectionBadge>
 
-            <h2 className="text-3xl font-bold md:text-4xl">
+            <h2 className="font-clash text-3xl font-bold md:text-4xl">
               Proyek Pilihan
             </h2>
 
-            <p className="leading-7 text-text-secondary">
+            <p className="font-general leading-7 text-text-secondary">
               Beberapa proyek yang merepresentasikan eksplorasi saya dalam
               pengembangan aplikasi dan desain antarmuka.
             </p>
@@ -36,18 +36,18 @@
           <div className="space-y-5">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
-                <h3 className="text-xl font-bold text-text-primary">
+                <h3 className="font-clash text-xl font-bold text-text-primary">
                   Proyek Lainnya
                 </h3>
 
-                <p className="mt-1 text-sm text-text-secondary">
+                <p className="mt-1 font-general text-sm text-text-secondary">
                   Proyek lain yang juga pernah saya kerjakan.
                 </p>
               </div>
 
               <Link
                 to="/projects"
-                className="group inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-accent"
+                className="group inline-flex min-h-11 items-center gap-2 font-general text-sm font-medium text-primary transition-colors hover:text-accent"
               >
                 Lihat Semua Proyek
                 <ArrowRight

@@ -38,14 +38,14 @@ function HeroSection() {
           </SectionBadge>
 
           <div className="space-y-5">
-            <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+            <h1 className="font-clash text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
               Halo, Saya{' '}
               <span className="bg-linear-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
                 Randy.
               </span>
             </h1>
 
-            <p className="max-w-xl text-base leading-8 text-text-secondary md:text-lg">
+            <p className="font-general max-w-xl text-base leading-8 text-text-secondary md:text-lg">
               Saya seorang Frontend Developer dan Graphic Designer yang suka memadukan kreativitas visual dengan teknologi untuk membangun antarmuka web yang interaktif, elegan, dan fungsional
             </p>
           </div>
@@ -72,7 +72,7 @@ function HeroSection() {
           </div>
 
           <div className="space-y-3 pt-1">
-            <p className="text-sm text-text-secondary">
+            <p className="font-general text-sm text-text-secondary">
               Tools &amp; Teknologi
             </p>
 
@@ -122,11 +122,11 @@ function HeroSection() {
             <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent" />
 
             <div className="absolute inset-x-0 bottom-0 p-5">
-              <p className="mt-1 font-semibold text-white">
+              <p className="mt-1 font-general font-semibold text-white">
                 Randy Saputra
               </p>
 
-              <p className="text-sm text-white/70">
+              <p className="font-general text-sm text-white/70">
                 UI/UX Designer &amp; Graphic Designer
               </p>
             </div>

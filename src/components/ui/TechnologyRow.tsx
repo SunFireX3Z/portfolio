@@ -29,11 +29,11 @@ function TechnologyRow({ technology }: TechnologyRowProps) {
       </div>
 
       <div className="min-w-0">
-        <h4 className="wrap-break-words text-base font-semibold leading-snug text-white md:text-lg">
+        <h4 className="font-clash wrap-break-words text-base font-semibold leading-snug text-white md:text-lg">
           {technology.name}
         </h4>
 
-        <p className="mt-1 text-sm leading-5 text-slate-400 md:text-base">
+        <p className="mt-1 font-general text-sm leading-5 text-slate-400 md:text-base">
           {technology.category}
         </p>
       </div>

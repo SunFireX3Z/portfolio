@@ -1,4 +1,3 @@
-
 import {
   ArrowUpRight,
   Mail,
@@ -85,19 +84,19 @@ function Footer() {
                 <span className="size-3 rounded-full bg-white" />
               </span>
 
-              <span className="text-xl font-bold tracking-tight text-text-primary sm:text-2xl">
+              <span className="font-clash text-xl font-bold tracking-tight text-text-primary sm:text-2xl">
                 SunFireX3Z
               </span>
             </a>
 
-            <h2 className="mt-8 max-w-xl text-3xl font-bold leading-tight tracking-tight text-text-primary sm:text-4xl lg:text-5xl">
+            <h2 className="mt-8 max-w-xl font-clash text-3xl font-bold leading-tight tracking-tight text-text-primary sm:text-4xl lg:text-5xl">
               Mari ciptakan sesuatu yang{' '}
               <span className="bg-linear-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
                 bermakna.
               </span>
             </h2>
 
-            <p className="mt-5 max-w-lg text-base leading-7 text-text-secondary sm:text-lg sm:leading-8">
+            <p className="mt-5 max-w-lg font-general text-base leading-7 text-text-secondary sm:text-lg sm:leading-8">
               Menggabungkan desain visual, pengalaman pengguna, dan
               pengembangan web untuk membangun pengalaman digital yang
               fungsional sekaligus menarik.
@@ -118,7 +117,7 @@ function Footer() {
 
           <div className="grid grid-cols-2 gap-8 sm:gap-10">
             <div>
-              <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-text-secondary">
+              <h3 className="font-general text-sm font-semibold uppercase tracking-[0.16em] text-text-secondary">
                 Navigasi
               </h3>
 
@@ -130,7 +129,7 @@ function Footer() {
                       onClick={(event) =>
                         handleNavigationClick(event, item.href)
                       }
-                      className="group inline-flex items-center gap-2 text-base text-text-primary/80 transition-colors hover:text-orange-400 sm:text-lg"
+                      className="group inline-flex items-center gap-2 font-general text-base text-text-primary/80 transition-colors hover:text-orange-400 sm:text-lg"
                     >
                       {item.label}
 
@@ -145,7 +144,7 @@ function Footer() {
             </div>
 
             <div>
-              <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-text-secondary">
+              <h3 className="font-general text-sm font-semibold uppercase tracking-[0.16em] text-text-secondary">
                 Temukan Saya
               </h3>
 
@@ -165,7 +164,7 @@ function Footer() {
                             ? 'noreferrer'
                             : undefined
                         }
-                        className="group inline-flex items-center gap-3 text-base text-text-primary/80 transition-colors hover:text-orange-400 sm:text-lg"
+                        className="group inline-flex items-center gap-3 font-general text-base text-text-primary/80 transition-colors hover:text-orange-400 sm:text-lg"
                       >
                         <Icon
                           size={19}
@@ -179,7 +178,7 @@ function Footer() {
                 })}
               </ul>
 
-              <p className="mt-8 max-w-48 text-sm leading-6 text-text-secondary">
+              <p className="mt-8 max-w-48 font-general text-sm leading-6 text-text-secondary">
                 Terbuka untuk kolaborasi dan kesempatan baru.
               </p>
             </div>
@@ -187,9 +186,9 @@ function Footer() {
         </div>
 
         <div className="flex flex-col gap-5 border-t border-white/10 py-6 sm:flex-row sm:items-center sm:justify-between sm:py-7">
-          <p className="text-sm leading-6 text-text-secondary sm:text-base">
+          <p className="font-general text-sm leading-6 text-text-secondary sm:text-base">
             © {currentYear}{' '}
-            <span className="font-medium text-text-primary">
+            <span className="font-general font-medium text-text-primary">
               Randy Saputra
             </span>
             . Hak cipta dilindungi.
@@ -198,7 +197,7 @@ function Footer() {
           <a
             href="#home"
             onClick={(event) => handleNavigationClick(event, '#home')}
-            className="group inline-flex min-h-10 items-center gap-2 self-start text-sm font-medium text-text-secondary transition-colors hover:text-orange-400 sm:self-auto sm:text-base"
+            className="group inline-flex min-h-10 items-center gap-2 self-start font-general text-sm font-medium text-text-secondary transition-colors hover:text-orange-400 sm:self-auto sm:text-base"
           >
             Kembali ke atas
             <ArrowUpRight size={17} />

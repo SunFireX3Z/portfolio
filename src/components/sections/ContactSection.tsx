@@ -62,13 +62,13 @@ function ContactSection() {
           <SectionBadge>Kontak</SectionBadge>
 
           <div className="space-y-3">
-            <h2 className="text-3xl font-bold leading-tight tracking-tight md:text-4xl">
+            <h2 className="font-clash text-3xl font-bold leading-tight tracking-tight md:text-4xl">
               Mari Mulai
               <br />
               <span className="text-orange-500">Sebuah Percakapan.</span>
             </h2>
 
-            <p className="max-w-lg text-sm leading-6 text-text-secondary md:text-base">
+            <p className="font-general max-w-lg text-sm leading-6 text-text-secondary md:text-base">
               Punya ide, peluang kerja, atau ingin berkolaborasi?
               Kirimkan pesan dan ceritakan apa yang ingin kamu diskusikan.
             </p>
@@ -79,7 +79,7 @@ function ContactSection() {
               <div className="space-y-2">
                 <label
                   htmlFor="contact-name"
-                  className="text-sm font-medium text-text-primary"
+                  className="font-general text-sm font-medium text-text-primary"
                 >
                   Nama
                 </label>
@@ -90,14 +90,14 @@ function ContactSection() {
                   autoComplete="name"
                   placeholder="Nama kamu"
                   required
-                  className="min-h-12 w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-text-primary outline-none transition-colors placeholder:text-text-secondary/60 focus:border-primary"
+                  className="font-general min-h-12 w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-text-primary outline-none transition-colors placeholder:text-text-secondary/60 focus:border-primary"
                 />
               </div>
 
               <div className="space-y-2">
                 <label
                   htmlFor="contact-email"
-                  className="text-sm font-medium text-text-primary"
+                  className="font-general text-sm font-medium text-text-primary"
                 >
                   Alamat Email
                 </label>
@@ -108,7 +108,7 @@ function ContactSection() {
                   autoComplete="email"
                   placeholder="nama@email.com"
                   required
-                  className="min-h-12 w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-text-primary outline-none transition-colors placeholder:text-text-secondary/60 focus:border-primary"
+                  className="font-general min-h-12 w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-text-primary outline-none transition-colors placeholder:text-text-secondary/60 focus:border-primary"
                 />
               </div>
             </div>
@@ -116,7 +116,7 @@ function ContactSection() {
             <div className="space-y-2">
               <label
                 htmlFor="contact-subject"
-                className="text-sm font-medium text-text-primary"
+                className="font-general text-sm font-medium text-text-primary"
               >
                 Subjek
               </label>
@@ -126,14 +126,14 @@ function ContactSection() {
                 type="text"
                 placeholder="Apa yang ingin kamu diskusikan?"
                 required
-                className="min-h-12 w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-text-primary outline-none transition-colors placeholder:text-text-secondary/60 focus:border-primary"
+                className="font-general min-h-12 w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-text-primary outline-none transition-colors placeholder:text-text-secondary/60 focus:border-primary"
               />
             </div>
 
             <div className="space-y-2">
               <label
                 htmlFor="contact-message"
-                className="text-sm font-medium text-text-primary"
+                className="font-general text-sm font-medium text-text-primary"
               >
                 Pesan
               </label>
@@ -143,19 +143,19 @@ function ContactSection() {
                 rows={5}
                 placeholder="Tuliskan pesanmu di sini..."
                 required
-                className="w-full resize-y rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm leading-6 text-text-primary outline-none transition-colors placeholder:text-text-secondary/60 focus:border-primary"
+                className="font-general w-full resize-y rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm leading-6 text-text-primary outline-none transition-colors placeholder:text-text-secondary/60 focus:border-primary"
               />
             </div>
 
             <button
               type="submit"
-              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-primary to-accent px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:w-auto"
+              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-primary to-accent px-5 py-3 font-general text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:w-auto"
             >
               {sent ? <Check size={17} /> : <Send size={17} />}
               {sent ? 'Buka Kembali Email' : 'Kirim Pesan'}
             </button>
 
-            <p className="text-xs leading-5 text-text-secondary">
+            <p className="font-general text-xs leading-5 text-text-secondary">
               Pesan akan disiapkan melalui aplikasi email di perangkatmu.
             </p>
           </form>
@@ -212,20 +212,20 @@ function ContactSection() {
                 </span>
               </div>
 
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-orange-400">
+              <p className="mb-3 font-general text-xs font-semibold uppercase tracking-[0.25em] text-orange-400">
                 Open for Conversation
               </p>
 
-              <h3 className="text-2xl font-bold text-text-primary md:text-3xl">
+              <h3 className="font-clash text-2xl font-bold text-text-primary md:text-3xl">
                 Setiap Ide Punya Awal.
               </h3>
 
-              <p className="mt-4 max-w-xs text-sm leading-6 text-text-secondary">
+              <p className="mt-4 max-w-xs font-general text-sm leading-6 text-text-secondary">
                 Terkadang, karya hebat dimulai dari sebuah pesan sederhana.
                 Mari bicarakan ide berikutnya.
               </p>
 
-              <div className="mt-7 flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-text-secondary">
+              <div className="mt-7 flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 font-general text-xs text-text-secondary">
                 <span className="size-2 rounded-full bg-orange-500" />
                 Terbuka untuk peluang dan kolaborasi
                 <ArrowUpRight size={14} className="text-orange-400" />

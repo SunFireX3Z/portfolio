@@ -15,7 +15,7 @@ function ProjectImage({ src, alt, caption }: ProjectImageProps) {
       />
 
       {caption && (
-        <figcaption className="text-center text-sm leading-6 text-text-secondary">
+        <figcaption className="font-general text-center text-sm leading-6 text-text-secondary">
           {caption}
         </figcaption>
       )}

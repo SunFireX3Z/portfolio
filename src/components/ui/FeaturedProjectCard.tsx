@@ -108,7 +108,7 @@ function FeaturedProjectCard({
           <span className="size-2.5 rounded-full bg-primary" />
         </div>
 
-        <span className="text-xs font-medium tracking-wider text-text-secondary">
+        <span className="font-clash text-xs font-medium tracking-wider text-text-secondary">
           PROYEK UNGGULAN
         </span>
       </div>
@@ -130,7 +130,7 @@ function FeaturedProjectCard({
               />
             ) : (
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-sm text-text-secondary">
+                <span className="font-general text-sm text-text-secondary">
                   Gambar belum tersedia
                 </span>
               </div>
@@ -213,11 +213,11 @@ function FeaturedProjectCard({
             </div>
 
             <div className="space-y-3">
-              <h3 className="text-2xl font-bold leading-tight text-text-primary md:text-3xl">
+              <h3 className="font-clash text-2xl font-bold leading-tight text-text-primary md:text-3xl">
                 {project.title}
               </h3>
 
-              <p className="text-base leading-7 text-text-secondary">
+              <p className="font-general text-base leading-7 text-text-secondary">
                 {project.description}
               </p>
             </div>
@@ -226,7 +226,7 @@ function FeaturedProjectCard({
             <div className="mt-auto flex flex-wrap gap-3 pt-1">
               <Link
                 to={`/projects/${project.slug}`}
-                className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-primary bg-transparent px-4 text-sm font-semibold text-primary transition-colors hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-primary bg-transparent px-4 font-general text-sm font-semibold text-primary transition-colors hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 Lihat Detail
                 <ArrowUpRight size={16} />
@@ -244,7 +244,7 @@ function FeaturedProjectCard({
                     )
                   }
                 }}
-                className={`inline-flex min-h-10 items-center justify-center gap-2 rounded-lg px-4 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-50 ${
+                className={`inline-flex min-h-10 items-center justify-center gap-2 rounded-lg px-4 font-general text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-50 ${
                   project.demoLink
                     ? 'bg-linear-to-r from-primary to-accent text-white hover:brightness-110'
                     : 'bg-linear-to-r from-primary/40 to-accent/40 text-white'
@@ -258,7 +258,7 @@ function FeaturedProjectCard({
 
           {/* Project metadata */}
           <div className="flex h-full flex-col gap-6 rounded-xl border border-white/10 bg-white/[0.02] p-5 sm:p-6">
-            <h4 className="text-lg font-bold text-text-primary sm:text-xl">
+            <h4 className="font-general text-lg font-bold text-text-primary sm:text-xl">
               Informasi Proyek
             </h4>
 
@@ -273,8 +273,8 @@ function FeaturedProjectCard({
                 />
 
                 <div className="min-w-0">
-                  <p className="text-sm text-text-secondary">Peran</p>
-                  <p className="mt-1 wrap-break-words text-base font-semibold leading-6 text-text-primary">
+                  <p className="font-general text-sm text-text-secondary">Peran</p>
+                  <p className="font-general mt-1 wrap-break-words text-base font-semibold leading-6 text-text-primary">
                     {project.role ?? '—'}
                   </p>
                 </div>
@@ -288,8 +288,8 @@ function FeaturedProjectCard({
                 />
 
                 <div className="min-w-0">
-                  <p className="text-sm text-text-secondary">Teknologi</p>
-                  <p className="mt-1 wrap-break-words text-base font-semibold leading-6 text-text-primary">
+                  <p className="font-general text-sm text-text-secondary">Teknologi</p>
+                  <p className="font-general mt-1 wrap-break-words text-base font-semibold leading-6 text-text-primary">
                     {project.technologies?.join(', ') || '—'}
                   </p>
                 </div>
@@ -303,8 +303,8 @@ function FeaturedProjectCard({
                 />
 
                 <div className="min-w-0">
-                  <p className="text-sm text-text-secondary">Durasi</p>
-                  <p className="mt-1 wrap-break-words text-base font-semibold leading-6 text-text-primary">
+                  <p className="font-general text-sm text-text-secondary">Durasi</p>
+                  <p className="font-general mt-1 wrap-break-words text-base font-semibold leading-6 text-text-primary">
                     {project.duration ?? '—'}
                   </p>
                 </div>
@@ -318,8 +318,8 @@ function FeaturedProjectCard({
                 />
 
                 <div className="min-w-0">
-                  <p className="text-sm text-text-secondary">Status</p>
-                  <p className="mt-1 wrap-break-words text-base font-semibold leading-6 text-text-primary">
+                  <p className="font-general text-sm text-text-secondary">Status</p>
+                  <p className="font-general mt-1 wrap-break-words text-base font-semibold leading-6 text-text-primary">
                     {project.status ?? '—'}
                   </p>
                 </div>

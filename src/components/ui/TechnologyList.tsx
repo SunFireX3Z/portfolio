@@ -52,7 +52,7 @@ function TechnologyList({ technologies }: TechnologyListProps) {
             type="button"
             onClick={() => setExpanded((previous) => !previous)}
             aria-expanded={expanded}
-            className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-orange-400 transition-colors hover:bg-orange-500/10 hover:text-orange-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+            className="inline-flex items-center gap-2 rounded-lg px-4 py-2 font-general text-sm font-medium text-orange-400 transition-colors hover:bg-orange-500/10 hover:text-orange-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
           >
             {expanded ? 'Lihat Lebih Sedikit' : 'Lihat Lebih'}
 
