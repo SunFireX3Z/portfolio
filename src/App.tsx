@@ -1,5 +1,10 @@
 import { useRef } from 'react'
-import { Routes, Route, useLocation, useNavigationType } from 'react-router'
+import {
+  Routes,
+  Route,
+  useLocation,
+  useNavigationType,
+} from 'react-router'
 import { AnimatePresence, motion } from 'motion/react'
 
 import Navbar from './components/layout/Navbar'
@@ -16,6 +21,7 @@ import ContactSection from './components/sections/ContactSection'
 
 import Projects from './pages/Projects'
 import ProjectDetail from './pages/ProjectDetail'
+import NotFound from './pages/NotFound'
 
 function HomePage() {
   return (
@@ -88,6 +94,8 @@ function AnimatedRoutes() {
             path="/projects/:slug"
             element={<ProjectDetail />}
           />
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </motion.div>
     </AnimatePresence>

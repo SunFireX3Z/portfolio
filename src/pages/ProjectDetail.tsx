@@ -11,6 +11,7 @@ import {
 
 import { publishedProjects } from '../data/projects'
 import Badge from '../components/ui/Badge'
+import NotFound from './NotFound'
 
 import AffinityIcon from '@/assets/icons/technologies/affinity.svg?url'
 import CanvaIcon from '@/assets/icons/technologies/canva.svg?url'
@@ -57,7 +58,7 @@ const technologyLogos: Record<string, string> = {
   'Visual Studio Code': VSCodeIcon,
   MySQL: MySQLIcon,
   Bootstrap: BootstrapIcon,
-  Pixellab: PixellabIcon
+  Pixellab: PixellabIcon,
 }
 
 function formatProjectDate(date: string): string {
@@ -138,21 +139,7 @@ function ProjectDetail() {
   const project = publishedProjects.find((item) => item.slug === slug)
 
   if (!project) {
-    return (
-      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <h1 className="text-2xl font-bold text-text-primary">
-          Proyek tidak ditemukan
-        </h1>
-
-        <p className="mt-3 text-text-secondary">
-          Proyek yang kamu cari tidak tersedia.
-        </p>
-
-        <div className="mt-6">
-          <ProjectNavigation />
-        </div>
-      </section>
-    )
+    return <NotFound />
   }
 
   return (
