@@ -2,8 +2,10 @@ import Card from './Card'
 import Badge from './Badge'
 import Button from './Button'
 import { ArrowRight } from 'lucide-react'
-import type { Project } from '../../data/projects/project-types'
+import type { Project } from '@/data/projects/project-types'
 import { Link } from 'react-router'
+import useImageLoading from '@/hooks/useImageLoading'
+import ImageLoadingSpinner from '@/components/ui/ImageLoadingSpinner'
 
 type ProjectCardProps = Project
 
@@ -41,6 +43,9 @@ function ProjectCard({
   category,
   status,
 }: ProjectCardProps) {
+  const { imageRef, isLoading, isLoaded, hasError } =
+    useImageLoading(image ?? '')
+
   return (
     <Card
       variant="interactive"
@@ -75,18 +80,36 @@ function ProjectCard({
 
           <div className="relative overflow-hidden">
             {image ? (
-              <img
-                src={image}
-                alt={`Pratinjau ${title}`}
-                className="aspect-video w-full object-cover"
-              />
+              <>
+                {isLoading && !hasError && (
+                  <ImageLoadingSpinner />
+                )}
+
+                {hasError ? (
+                  <div className="flex aspect-video w-full items-center justify-center bg-white/5">
+                    <span className="font-general text-sm text-text-secondary">
+                      Gambar gagal dimuat
+                    </span>
+                  </div>
+                ) : (
+                  <img
+                    ref={imageRef}
+                    src={image}
+                    alt={`Pratinjau ${title}`}
+                    className={`aspect-video w-full object-cover transition-opacity duration-500 ${
+                      isLoaded ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                )}
+              </>
             ) : (
               <div className="flex aspect-video w-full items-center justify-center bg-white/5">
                 <span className="font-general text-sm text-text-secondary">
                   Gambar belum tersedia
                 </span>
               </div>
-            )}                 
+            )}
+
             {status && (
               <div
                 className="pointer-events-none absolute right-0 top-0 z-10 size-28 overflow-hidden"
@@ -94,8 +117,8 @@ function ProjectCard({
               >
                 <span
                   className={[
-                    'absolute -right-36px top-20px w-145px rotate-45',
-                    'px-2 py-1.5 text-center font-general text-[10px] font-bold uppercase tracking-wider',
+                    'absolute -right-[36px] top-[20px] flex w-[145px] rotate-45 justify-center',
+                    'px-2 py-1.5 font-general text-[10px] font-bold uppercase tracking-wider',
                     'whitespace-nowrap shadow-lg',
                     getStatusStyle(status),
                   ].join(' ')}

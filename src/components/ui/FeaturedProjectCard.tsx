@@ -11,7 +11,9 @@ import {
 } from 'lucide-react'
 import Card from './Card'
 import Badge from './Badge'
-import type { Project } from '../../data/projects/project-types'
+import ImageLoadingSpinner from '@/components/ui/ImageLoadingSpinner'
+import useImageLoading from '@/hooks/useImageLoading'
+import type { Project } from '@/data/projects/project-types'
 
 type FeaturedProjectCardProps = {
   projects: Project[]
@@ -39,11 +41,14 @@ function FeaturedProjectCard({
   const [direction, setDirection] = useState<SlideDirection>('next')
   const AUTO_SLIDE_INTERVAL = 10_000
 
-  if (projects.length === 0) {
-    return null
-  }
-
   const project = projects[currentIndex]
+
+  const {
+    imageRef,
+    isLoaded,
+    isLoading,
+    hasError,
+  } = useImageLoading(project?.image ?? '')
 
   const changeProject = (
     nextIndex: number,
@@ -91,6 +96,10 @@ function FeaturedProjectCard({
     return () => window.clearTimeout(timer)
   }, [currentIndex, projects.length])
 
+  if (!project) {
+    return null
+  }
+
   return (
     <Card
       variant="interactive"
@@ -122,12 +131,31 @@ function FeaturedProjectCard({
         <div className="border-b border-white/5 bg-slate-950/60 p-3 sm:p-5">
           <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]">
             {project.image ? (
-              <img
-                src={project.image}
-                alt={`Pratinjau ${project.title}`}
-                className="absolute inset-0 size-full object-contain"
-                loading="lazy"
-              />
+              <>
+                {/* Image loading spinner */}
+                {isLoading && !hasError && (
+                  <ImageLoadingSpinner />
+                )}
+
+                {/* Image error fallback */}
+                {hasError ? (
+                  <div className="absolute inset-0 flex items-center justify-center bg-slate-900">
+                    <span className="font-general text-sm text-text-secondary">
+                      Gambar gagal dimuat
+                    </span>
+                  </div>
+                ) : (
+                  <img
+                    ref={imageRef}
+                    src={project.image}
+                    alt={`Pratinjau ${project.title}`}
+                    className={`absolute inset-0 size-full object-contain transition-opacity duration-500 ${
+                      isLoaded ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    loading="lazy"
+                  />
+                )}
+              </>
             ) : (
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="font-general text-sm text-text-secondary">
